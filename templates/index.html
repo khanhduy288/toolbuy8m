@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Buyer Tool</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h2>🛒 Auto Buyer Tool</h2>
+
+  <form id="accountForm" onsubmit="return false;">
+    <table>
+      <thead>
+        <tr>
+          <th>Chạy</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Proxy (SOCKS5)</th>
+          <th>Tài khoản mới</th>
+          <th>Card Number</th>
+          <th>Exp M</th>
+          <th>Exp Y</th>
+          <th>CVV</th>
+          <th>Link sản phẩm</th>
+          <th>Số lượng</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody id="accountTableBody"></tbody>
+    </table>
+
+    <div class="buttons">
+      <button type="button" onclick="addRow()">➕ Thêm dòng</button>
+      <button type="button" onclick="saveAccounts()">💾 Lưu tất cả</button>
+      <button type="button" onclick="startWorkflow()">▶️ Start Workflow</button>
+    </div>
+  </form>
+
+  <pre id="result"></pre>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

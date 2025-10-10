@@ -1,0 +1,60 @@
+[
+  {
+    "step": 1,
+    "action": "open_url",
+    "url": "{{selected_account.url}}",
+    "desc": "Mở link sản phẩm từ account đã chọn"
+  },
+  {
+    "step": 2,
+    "action": "sleep",
+    "seconds": 5,
+    "desc": "Chờ trang load"
+  },
+  {
+    "step": 3,
+    "action": "click_image",
+    "image": "add_to_cart.png",
+    "desc": "Nhấn nút thêm vào giỏ hàng"
+  },
+  {
+    "step": 4,
+    "action": "sleep",
+    "seconds": 3,
+    "desc": "Chờ giỏ hàng cập nhật"
+  },
+  {
+    "step": 5,
+    "action": "click_image",
+    "image": "checkout.png",
+    "desc": "Nhấn nút thanh toán"
+  },
+  {
+    "step": 6,
+    "action": "sleep",
+    "seconds": 5,
+    "desc": "Chờ trang thanh toán tải"
+  },
+  {
+    "step": 7,
+    "action": "fill_form",
+    "fields": {
+      "card_number": "{{selected_account.card_number}}",
+      "exp_month": "{{selected_account.exp_month}}",
+      "exp_year": "{{selected_account.exp_year}}"
+    },
+    "desc": "Điền thông tin thẻ từ account JSON"
+  },
+  {
+    "step": 8,
+    "action": "click_image",
+    "image": "confirm_payment.png",
+    "desc": "Xác nhận thanh toán"
+  },
+  {
+    "step": 9,
+    "action": "sleep",
+    "seconds": 10,
+    "desc": "Đợi xác nhận đơn hàng"
+  }
+]

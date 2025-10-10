@@ -1,0 +1,88 @@
+[2025-10-10 17:47:48] Lưu tài khoản Khanhduya9.
+[2025-10-10 17:48:26] Lưu tài khoản Khanhduya9.
+[2025-10-10 17:48:28] Lưu tài khoản Khanhduya9.
+[2025-10-10 17:48:38] Lưu 1 tài khoản.
+[2025-10-10 17:48:52] Lưu tài khoản Khanhduya9.
+[2025-10-10 18:18:26] ▶️ Bắt đầu chạy workflow cho 1 tài khoản...
+[2025-10-10 18:18:26] --- Xử lý tài khoản Khanhduya9 ---
+[2025-10-10 18:18:26] → Đăng nhập bằng proxy: 123123
+[2025-10-10 18:18:26] → Tạo tài khoản mới và thêm thẻ 123123221
+[2025-10-10 18:18:27] → Mua sản phẩm: https://m.shein.com/jp/KINGSTON-Kingston-RAM-FURY-Beast-DDR5-16GB-32GB-5200MHz-5600MHz-6000MHz-Desktop-AMD-Intel-CPU-Motherboard-Memory-RAMs-p-25685353.html | SL: 1
+[2025-10-10 18:18:27] ✅ Hoàn tất tài khoản Khanhduya9
+[2025-10-10 18:18:27] 🎉 Workflow hoàn tất!
+[2025-10-10 18:22:42] ▶️ Bắt đầu chạy workflow cho 1 tài khoản...
+[2025-10-10 18:22:42] --- Xử lý tài khoản Khanhduya9 ---
+[2025-10-10 18:22:42] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-10 18:22:42] 🌐 Mở URL: https://m.shein.com/jp/KINGSTON-Kingston-RAM-FURY-Beast-DDR5-16GB-32GB-5200MHz-5600MHz-6000MHz-Desktop-AMD-Intel-CPU-Motherboard-Memory-RAMs-p-25685353.html
+[2025-10-10 18:22:42] 🔹 Chờ trang load
+[2025-10-10 18:22:42] ⏳ Chờ 5 giây...
+[2025-10-10 18:22:47] 🔹 Nhấn nút thêm vào giỏ hàng
+[2025-10-10 18:22:47] 🖱️ Giả lập click vào ảnh: add_to_cart.png
+[2025-10-10 18:22:47] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-10 18:22:47] ⏳ Chờ 3 giây...
+[2025-10-10 18:22:50] 🔹 Nhấn nút thanh toán
+[2025-10-10 18:22:50] 🖱️ Giả lập click vào ảnh: checkout.png
+[2025-10-10 18:22:50] 🔹 Chờ trang thanh toán tải
+[2025-10-10 18:22:50] ⏳ Chờ 5 giây...
+[2025-10-10 18:22:55] 🔹 Điền thông tin thẻ từ account JSON
+[2025-10-10 18:22:55] ✏️ Điền card_number: 123123221
+[2025-10-10 18:22:55] ✏️ Điền exp_month: {{selected_account.exp_month}}
+[2025-10-10 18:22:55] ✏️ Điền exp_year: {{selected_account.exp_year}}
+[2025-10-10 18:22:55] 🔹 Xác nhận thanh toán
+[2025-10-10 18:22:55] 🖱️ Giả lập click vào ảnh: confirm_payment.png
+[2025-10-10 18:22:55] 🔹 Đợi xác nhận đơn hàng
+[2025-10-10 18:22:55] ⏳ Chờ 10 giây...
+[2025-10-10 18:23:05] ✅ Hoàn tất tài khoản Khanhduya9
+[2025-10-10 18:23:05] 🎉 Workflow hoàn tất!
+[2025-10-10 18:30:19] ▶️ Bắt đầu chạy workflow cho 1 tài khoản...
+[2025-10-10 18:30:19] 
+--- 🔸 Xử lý tài khoản Khanhduya9 ---
+[2025-10-10 18:30:19] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-10 18:30:19] 🌐 Đã mở cửa sổ Edge mới: https://m.shein.com/jp/KINGSTON-Kingston-RAM-FURY-Beast-DDR5-16GB-32GB-5200MHz-5600MHz-6000MHz-Desktop-AMD-Intel-CPU-Motherboard-Memory-RAMs-p-25685353.html
+[2025-10-10 18:30:19] 🔹 Chờ trang load
+[2025-10-10 18:30:19] ⏳ Chờ 5 giây...
+[2025-10-10 18:30:24] 🔹 Nhấn nút thêm vào giỏ hàng
+[2025-10-10 18:30:24] 🖱️ (Mô phỏng click) Ảnh: add_to_cart.png
+[2025-10-10 18:30:24] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-10 18:30:24] ⏳ Chờ 3 giây...
+[2025-10-10 18:30:27] 🔹 Nhấn nút thanh toán
+[2025-10-10 18:30:27] 🖱️ (Mô phỏng click) Ảnh: checkout.png
+[2025-10-10 18:30:27] 🔹 Chờ trang thanh toán tải
+[2025-10-10 18:30:27] ⏳ Chờ 5 giây...
+[2025-10-10 18:30:32] 🔹 Điền thông tin thẻ từ account JSON
+[2025-10-10 18:30:32] ✏️ Điền card_number: 123123221
+[2025-10-10 18:30:32] ✏️ Điền exp_month: {{selected_account.exp_month}}
+[2025-10-10 18:30:32] ✏️ Điền exp_year: {{selected_account.exp_year}}
+[2025-10-10 18:30:32] 🔹 Xác nhận thanh toán
+[2025-10-10 18:30:32] 🖱️ (Mô phỏng click) Ảnh: confirm_payment.png
+[2025-10-10 18:30:32] 🔹 Đợi xác nhận đơn hàng
+[2025-10-10 18:30:32] ⏳ Chờ 10 giây...
+[2025-10-10 18:30:42] ✅ Hoàn tất tài khoản Khanhduya9
+[2025-10-10 18:30:42] 🎉 Workflow hoàn tất!
+[2025-10-10 18:32:10] Lưu 1 tài khoản.
+[2025-10-10 18:32:24] ▶️ Bắt đầu chạy workflow cho 1 tài khoản...
+[2025-10-10 18:32:24] 
+--- 🔸 Xử lý tài khoản Khanhduya9 ---
+[2025-10-10 18:32:24] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-10 18:32:24] 🌐 Đã mở cửa sổ Edge mới: https://www.yodobashi.com/product/100000001003891482/
+[2025-10-10 18:32:24] 🔹 Chờ trang load
+[2025-10-10 18:32:24] ⏳ Chờ 5 giây...
+[2025-10-10 18:32:29] 🔹 Nhấn nút thêm vào giỏ hàng
+[2025-10-10 18:32:29] 🖱️ (Mô phỏng click) Ảnh: add_to_cart.png
+[2025-10-10 18:32:29] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-10 18:32:29] ⏳ Chờ 3 giây...
+[2025-10-10 18:32:32] 🔹 Nhấn nút thanh toán
+[2025-10-10 18:32:32] 🖱️ (Mô phỏng click) Ảnh: checkout.png
+[2025-10-10 18:32:32] 🔹 Chờ trang thanh toán tải
+[2025-10-10 18:32:32] ⏳ Chờ 5 giây...
+[2025-10-10 18:32:37] 🔹 Điền thông tin thẻ từ account JSON
+[2025-10-10 18:32:37] ✏️ Điền card_number: 123123221
+[2025-10-10 18:32:37] ✏️ Điền exp_month: {{selected_account.exp_month}}
+[2025-10-10 18:32:37] ✏️ Điền exp_year: {{selected_account.exp_year}}
+[2025-10-10 18:32:37] 🔹 Xác nhận thanh toán
+[2025-10-10 18:32:37] 🖱️ (Mô phỏng click) Ảnh: confirm_payment.png
+[2025-10-10 18:32:37] 🔹 Đợi xác nhận đơn hàng
+[2025-10-10 18:32:37] ⏳ Chờ 10 giây...
+[2025-10-10 18:32:47] ✅ Hoàn tất tài khoản Khanhduya9
+[2025-10-10 18:32:47] 🎉 Workflow hoàn tất!
+[2025-10-10 18:35:19] 💾 Lưu tài khoản Khanhduya9

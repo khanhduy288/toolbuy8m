@@ -1,0 +1,19 @@
+tuyetbii27112003@gmail.com
+Ductu2306
+
+
+B có thể tham khảo qua cái này
+Phần mua hàng loại 2 hộp kia thì sẽ có ô điền link để tự chọn chạy 1 trong 2 loại cho mỗi tài khoản
+Ô điền giờ để hẹn giờ chạy
+Điền số lượng
+Ở trên nhập thông tin tài khoản user ,pass,proxy(dạng sock5),cvv,
+Mình hiểu rồi b
+Phần ô tích chọn tài khoản mới đấy là dành cho tài khoản mới đăng kí(nếu tài khoản cũ đã có lịch sử mua hàng thành công thì thẻ visa đã lưu sẵn trong acc,còn tài khoản mới lúc mua sẽ phải điền đầy đủ số thẻ ngày tháng cvv
+Lúc mua test b sẽ hiểu trong bước đặt mua
+Mình cần cho bot kèm server để cấp key cho người thuê
+Tức là sẽ gửi file exe và người dùng cài đặt lên kích hoạt theo key mình cấp
+
+link web : https://yodobashi.com/
+search tracking チェキフィルム
+link 1: https://www.yodobashi.com/product/100000001003891482/
+link 2: https://www.yodobashi.com/product/100000001003891483/
