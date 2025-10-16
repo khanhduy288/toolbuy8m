@@ -37,7 +37,18 @@ def log_action(message):
     with _log_lock:
         with open(LOG_FILE, "a", encoding="utf-8") as f:
             f.write(line)
+def load_accounts():
+    if not os.path.exists(ACCOUNTS_FILE):
+        return []
+    with open(ACCOUNTS_FILE, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except json.JSONDecodeError:
+            return []
 
+def save_accounts(data):
+    with open(ACCOUNTS_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
 
 # ---------- proxy detection ----------
 def proxy_works(proxy):
@@ -438,6 +449,49 @@ def get_accounts():
         with open(ACCOUNTS_FILE, "r", encoding="utf-8") as f:
             return jsonify(json.load(f))
     return jsonify([])
+
+@app.route("/save_one", methods=["POST"])
+def save_one():
+    try:
+        incoming = request.get_json(silent=True)  # trả None nếu không phải JSON
+        print("📩 /save_one payload:", incoming)  # debug
+
+        if not incoming:
+            return jsonify({"result": "❌ Không nhận được JSON. Hãy gửi Content-Type: application/json"}), 400
+
+        # chấp nhận cả email hoặc username
+        email = incoming.get("email") or incoming.get("username")
+        password = incoming.get("password") or incoming.get("pass") or incoming.get("pwd")
+
+        if not email or not password:
+            return jsonify({"result": "❌ Thiếu thông tin tài khoản! Cần 'email/username' và 'password'."}), 400
+
+        # load existing accounts
+        accounts = load_accounts()
+
+        # định danh account bằng trường email/username; bạn có thể đổi thành 'username' nếu muốn
+        existing = next((acc for acc in accounts if acc.get("username") == email or acc.get("email") == email), None)
+
+        if existing:
+            existing.update(incoming)
+            msg = f"🔄 Đã cập nhật tài khoản: {email}"
+        else:
+            # nếu muốn tự tạo id, thêm id
+            if "id" not in incoming:
+                # tạo id đơn giản (millis)
+                incoming["id"] = int(time.time() * 1000)
+            # chuẩn hoá lưu: giữ cả username và email trường username nếu trước đó dùng username
+            if "username" not in incoming and "email" in incoming:
+                incoming["username"] = incoming["email"]
+            accounts.append(incoming)
+            msg = f"🆕 Đã thêm tài khoản mới: {email}"
+
+        save_accounts(accounts)
+        return jsonify({"result": "✅ Thành công", "message": msg})
+
+    except Exception as e:
+        log_action(f"❌ Lỗi /save_one: {e}")
+        return jsonify({"result": "❌ Lỗi server", "error": str(e)}), 500
 
 
 @app.route("/save", methods=["POST"])

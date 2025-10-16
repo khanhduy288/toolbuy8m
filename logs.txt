@@ -1117,3 +1117,27 @@ Stacktrace:
 [2025-10-16 14:05:41] 🔹 
 [2025-10-16 14:05:41] ⏳ Chờ 8 giây...
 [2025-10-16 14:05:49] ✅ Hoàn tất tài khoản tuyetbii27112003@gmail.com
+[2025-10-16 14:13:29] Lưu 2 tài khoản.
+[2025-10-16 14:17:37] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 14:17:37] 🟢 Đã start thread cho tuyetbii27112003@gmail.com (idx 0)
+[2025-10-16 14:17:37] 
+--- 🔸 Bắt đầu xử lý tài khoản tuyetbii27112003@gmail.com ---
+[2025-10-16 14:17:44] 🔴 Proxy 1212 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000011DC08E2AD0>: Failed to resolve '1212' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 14:17:47] 🔴 Proxy 1212 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x0000011DC08E0340>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 14:17:47] ❌ Proxy 1212 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 14:17:47] ⚠️ Proxy 1212 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 14:17:47] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 14:17:53] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 14:17:54] 🔹 Chờ trang load
+[2025-10-16 14:17:54] ⏳ Chờ 6 giây...
+[2025-10-16 14:18:00] 🔹 Click nút ログイン
+[2025-10-16 14:18:00] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 14:18:02] ✅ Đã click DOM thành công!
+[2025-10-16 14:18:04] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 14:18:04] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 14:18:11] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 14:18:13] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-16 14:18:13] 🎉 Fast login thành công (theo heuristics).
+[2025-10-16 14:18:13] 🔹 
+[2025-10-16 14:18:13] ⏳ Chờ 8 giây...
+[2025-10-16 14:18:21] ✅ Hoàn tất tài khoản tuyetbii27112003@gmail.com
