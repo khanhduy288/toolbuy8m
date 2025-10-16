@@ -1228,3 +1228,1359 @@ Stacktrace:
 
 [2025-10-16 17:26:08] 🔹 Chờ giỏ hàng cập nhật
 [2025-10-16 17:26:08] ⏳ Chờ 6 giây...
+[2025-10-16 17:28:26] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:28:26] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-16 17:28:26] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-16 17:28:33] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001CB882559C0>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:28:36] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000001CB88299A80>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:28:36] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:28:36] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:28:36] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:28:42] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:28:43] 🔹 Chờ trang load
+[2025-10-16 17:28:43] ⏳ Chờ 6 giây...
+[2025-10-16 17:28:49] 🔹 Click nút ログイン
+[2025-10-16 17:28:49] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:28:52] ✅ Đã click DOM thành công!
+[2025-10-16 17:28:53] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:28:53] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:28:54] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:29:00] 🔍 URL không đổi (fast check).
+[2025-10-16 17:29:00] 🖼️ Lưu screenshot debug: debug_fast_login_ttng477@gmail.com_1760610540.png
+[2025-10-16 17:29:00] 🔎 Snippet page_source (fast) 1600 ký tự đầu:
+[2025-10-16 17:29:00] <html><head>
+<title>Access Denied</title>
+</head><body>
+<h1>Access Denied</h1>
+ 
+You don't have permission to access "http://order.yodobashi.com/yc/login/action.html" on this server.<p>
+Reference #18.d2142017.1760610476.3e7a953
+</p><p>https://errors.edgesuite.net/18.d2142017.1760610476.3e7a953</p>
+
+
+</body></html>
+[2025-10-16 17:29:00] ❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.
+[2025-10-16 17:29:00] 🔹 
+[2025-10-16 17:29:00] ⏳ Chờ 8 giây...
+[2025-10-16 17:29:08] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:29:08] ⏳ Chờ 3 giây...
+[2025-10-16 17:29:11] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:29:11] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:29:11] ❌ Lỗi khi click_dom: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: MicrosoftEdge=141.0.3537.71); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff608660cd0]
+	(No symbol) [0x0x7ff60867fbba]
+	(No symbol) [0x0x7ff6086e7734]
+	(No symbol) [0x0x7ff6086fed0a]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:11] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:29:11] ⏳ Chờ 6 giây...
+[2025-10-16 17:29:17] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:29:17] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:29:17] ❌ Lỗi khi click_dom: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:17] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:29:17] ⏳ Chờ 6 giây...
+[2025-10-16 17:29:23] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:29:23] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:29:23] ❌ Lỗi khi click_dom: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:23] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:29:23] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-16 17:29:23] ❌ Lỗi khi điền card_cvv: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:23] 🎉 Hoàn tất nhập thông tin thanh toán.
+[2025-10-16 17:29:23] ⚠️ Không click được radio paymentTypeCode: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:23] ⚠️ Click attempt 1 thất bại: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:24] ⚠️ Click attempt 2 thất bại: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:24] ⚠️ Click attempt 3 thất bại: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:29:25] ❌ Không click được nút Kế tiếp sau 3 lần thử.
+[2025-10-16 17:29:25] 🔹 
+[2025-10-16 17:29:25] ⏳ Chờ 3 giây...
+[2025-10-16 17:29:28] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:29:28] ⏳ Chờ 20 giây...
+[2025-10-16 17:29:48] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-16 17:33:14] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:33:14] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-16 17:33:14] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-16 17:33:22] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019EB4319900>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:33:24] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x0000019EB4319AB0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:33:24] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:33:24] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:33:24] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:33:30] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:33:31] 🔹 Chờ trang load
+[2025-10-16 17:33:31] ⏳ Chờ 6 giây...
+[2025-10-16 17:33:37] 🔹 Click nút ログイン
+[2025-10-16 17:33:37] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:33:39] ✅ Đã click DOM thành công!
+[2025-10-16 17:33:40] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:33:40] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:33:41] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:33:47] 🔍 URL không đổi (fast check).
+[2025-10-16 17:33:47] 🖼️ Lưu screenshot debug: debug_fast_login_ttng477@gmail.com_1760610827.png
+[2025-10-16 17:33:47] 🔎 Snippet page_source (fast) 1600 ký tự đầu:
+[2025-10-16 17:33:47] <html><head>
+<title>Access Denied</title>
+</head><body>
+<h1>Access Denied</h1>
+ 
+You don't have permission to access "http://order.yodobashi.com/yc/login/action.html" on this server.<p>
+Reference #18.bb142017.1760610763.263527e
+</p><p>https://errors.edgesuite.net/18.bb142017.1760610763.263527e</p>
+
+
+</body></html>
+[2025-10-16 17:33:47] ❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.
+[2025-10-16 17:33:47] 🔹 
+[2025-10-16 17:33:47] ⏳ Chờ 8 giây...
+[2025-10-16 17:33:55] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:33:55] ⏳ Chờ 3 giây...
+[2025-10-16 17:33:58] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:33:58] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:34:14] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:34:14] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:34:14] ⏳ Chờ 6 giây...
+[2025-10-16 17:34:20] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:34:20] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:34:35] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:34:35] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:34:35] ⏳ Chờ 6 giây...
+[2025-10-16 17:34:41] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:34:41] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:34:49] ❌ Lỗi khi click_dom: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: MicrosoftEdge=141.0.3537.71); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff608660cd0]
+	(No symbol) [0x0x7ff60867fbba]
+	(No symbol) [0x0x7ff6086e7734]
+	(No symbol) [0x0x7ff6086fed0a]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:34:49] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:34:49] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-16 17:34:49] ❌ Lỗi khi điền card_cvv: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:34:49] 🎉 Hoàn tất nhập CVV.
+[2025-10-16 17:34:49] ❌ Lỗi khi click nút Thanh toán: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:34:49] 🔹 
+[2025-10-16 17:34:49] ⏳ Chờ 3 giây...
+[2025-10-16 17:34:52] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:34:52] ⏳ Chờ 20 giây...
+[2025-10-16 17:35:07] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:35:07] 🟢 Đã start thread cho tuyetbii27112003@gmail.com (idx 0)
+[2025-10-16 17:35:07] 
+--- 🔸 Bắt đầu xử lý tài khoản tuyetbii27112003@gmail.com ---
+[2025-10-16 17:35:12] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-16 17:35:14] 🔴 Proxy 1212 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000019EB42D64A0>: Failed to resolve '1212' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:35:17] 🔴 Proxy 1212 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x0000019EB4319F60>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:35:17] ❌ Proxy 1212 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:35:17] ⚠️ Proxy 1212 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:35:17] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:35:22] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:35:24] 🔹 Chờ trang load
+[2025-10-16 17:35:24] ⏳ Chờ 6 giây...
+[2025-10-16 17:35:30] 🔹 Click nút ログイン
+[2025-10-16 17:35:30] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:35:31] ✅ Đã click DOM thành công!
+[2025-10-16 17:35:32] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:35:32] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:35:33] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:35:39] 🔍 URL không đổi (fast check).
+[2025-10-16 17:35:39] 🖼️ Lưu screenshot debug: debug_fast_login_tuyetbii27112003@gmail.com_1760610939.png
+[2025-10-16 17:35:39] 🔎 Snippet page_source (fast) 1600 ký tự đầu:
+[2025-10-16 17:35:39] <html><head>
+<title>Access Denied</title>
+</head><body>
+<h1>Access Denied</h1>
+ 
+You don't have permission to access "http://order.yodobashi.com/yc/login/action.html" on this server.<p>
+Reference #18.bb142017.1760610875.2651ba3
+</p><p>https://errors.edgesuite.net/18.bb142017.1760610875.2651ba3</p>
+
+
+</body></html>
+[2025-10-16 17:35:39] ❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.
+[2025-10-16 17:35:39] 🔹 
+[2025-10-16 17:35:39] ⏳ Chờ 8 giây...
+[2025-10-16 17:35:47] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:35:47] ⏳ Chờ 3 giây...
+[2025-10-16 17:35:50] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:35:50] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:36:06] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:36:06] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:36:06] ⏳ Chờ 6 giây...
+[2025-10-16 17:36:12] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:36:12] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:36:27] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:36:27] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:36:27] ⏳ Chờ 6 giây...
+[2025-10-16 17:36:33] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:36:33] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:36:49] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:36:49] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:36:49] 💳 Bắt đầu điền thông tin thanh toán (is_new=True)
+[2025-10-16 17:36:57] ❌ Lỗi khi điền card_number: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:04] ❌ Lỗi khi chọn card_exp_month: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: MicrosoftEdge=141.0.3537.71); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff608660cd0]
+	(No symbol) [0x0x7ff60867fbba]
+	(No symbol) [0x0x7ff6086e7734]
+	(No symbol) [0x0x7ff6086fed0a]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:04] ❌ Lỗi khi chọn card_exp_year: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:04] 🎉 Hoàn tất nhập thông tin thẻ mới.
+[2025-10-16 17:37:04] ⚠️ Không click được radio paymentTypeCode: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:04] ❌ Lỗi khi click nút Kế tiếp: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:04] 🔹 
+[2025-10-16 17:37:04] ⏳ Chờ 3 giây...
+[2025-10-16 17:37:07] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:37:07] ⏳ Chờ 20 giây...
+[2025-10-16 17:37:24] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:37:24] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-16 17:37:24] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-16 17:37:32] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002AE6D646830>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:37:34] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000002AE6D68DA80>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:37:34] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:37:34] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:37:34] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:37:40] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:37:41] 🔹 Chờ trang load
+[2025-10-16 17:37:41] ⏳ Chờ 6 giây...
+[2025-10-16 17:37:47] 🔹 Click nút ログイン
+[2025-10-16 17:37:47] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:37:48] ✅ Đã click DOM thành công!
+[2025-10-16 17:37:49] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:37:49] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:37:50] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:37:56] 🔍 URL không đổi (fast check).
+[2025-10-16 17:37:56] ⚠️ Không thể lưu screenshot debug: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:56] ⚠️ Không thể đọc page_source: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:37:56] ❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.
+[2025-10-16 17:37:56] 🔹 
+[2025-10-16 17:37:56] ⏳ Chờ 8 giây...
+[2025-10-16 17:38:04] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:38:04] ⏳ Chờ 3 giây...
+[2025-10-16 17:38:07] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:38:07] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:38:07] ❌ Lỗi khi click_dom: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:38:07] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:38:07] ⏳ Chờ 6 giây...
+[2025-10-16 17:38:13] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:38:13] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:38:13] ❌ Lỗi khi click_dom: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:38:13] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:38:13] ⏳ Chờ 6 giây...
+[2025-10-16 17:38:19] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:38:19] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:38:19] ❌ Lỗi khi click_dom: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:38:19] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:38:19] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-16 17:38:19] ❌ Lỗi khi điền card_cvv: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:38:19] 🎉 Hoàn tất nhập CVV.
+[2025-10-16 17:38:19] ❌ Lỗi khi click nút Thanh toán: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:38:19] 🔹 
+[2025-10-16 17:38:19] ⏳ Chờ 3 giây...
+[2025-10-16 17:38:22] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:38:22] ⏳ Chờ 20 giây...
+[2025-10-16 17:38:42] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-16 17:40:06] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:40:06] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-16 17:40:06] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-16 17:40:13] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002AE6D647A30>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:40:16] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000002AE6D68F640>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:40:16] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:40:16] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:40:16] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:40:21] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:40:22] 🔹 Chờ trang load
+[2025-10-16 17:40:22] ⏳ Chờ 6 giây...
+[2025-10-16 17:40:28] 🔹 Click nút ログイン
+[2025-10-16 17:40:28] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:40:29] ✅ Đã click DOM thành công!
+[2025-10-16 17:40:30] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:40:30] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:40:31] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:40:37] 🔍 URL không đổi (fast check).
+[2025-10-16 17:40:37] 🖼️ Lưu screenshot debug: debug_fast_login_ttng477@gmail.com_1760611237.png
+[2025-10-16 17:40:37] 🔎 Snippet page_source (fast) 1600 ký tự đầu:
+[2025-10-16 17:40:37] <html><head>
+<title>Access Denied</title>
+</head><body>
+<h1>Access Denied</h1>
+ 
+You don't have permission to access "http://order.yodobashi.com/yc/login/action.html" on this server.<p>
+Reference #18.bb142017.1760611173.26968bb
+</p><p>https://errors.edgesuite.net/18.bb142017.1760611173.26968bb</p>
+
+
+</body></html>
+[2025-10-16 17:40:37] ❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.
+[2025-10-16 17:40:37] 🔹 
+[2025-10-16 17:40:37] ⏳ Chờ 8 giây...
+[2025-10-16 17:40:45] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:40:45] ⏳ Chờ 3 giây...
+[2025-10-16 17:40:48] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:40:48] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:41:04] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:41:04] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:41:04] ⏳ Chờ 6 giây...
+[2025-10-16 17:41:10] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:41:10] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:41:25] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:41:25] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:41:25] ⏳ Chờ 6 giây...
+[2025-10-16 17:41:31] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:41:31] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:41:47] ❌ Lỗi khi click_dom: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:41:47] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:41:47] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-16 17:41:55] ❌ Lỗi khi điền card_cvv: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:41:55] 🎉 Hoàn tất nhập CVV.
+[2025-10-16 17:42:04] ❌ Lỗi khi click nút Thanh toán: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff6086c045b]
+	(No symbol) [0x0x7ff6086c071b]
+	(No symbol) [0x0x7ff608701927]
+	(No symbol) [0x0x7ff6086e216f]
+	(No symbol) [0x0x7ff6086b667b]
+	(No symbol) [0x0x7ff6086ff3d2]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:42:04] 🔹 
+[2025-10-16 17:42:04] ⏳ Chờ 3 giây...
+[2025-10-16 17:42:07] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:42:07] ⏳ Chờ 20 giây...
+[2025-10-16 17:42:27] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-16 17:49:30] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:49:30] 🟢 Đã start thread cho tuyetbii27112003@gmail.com (idx 0)
+[2025-10-16 17:49:30] 
+--- 🔸 Bắt đầu xử lý tài khoản tuyetbii27112003@gmail.com ---
+[2025-10-16 17:49:38] 🔴 Proxy 1212 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002AE6D68CA30>: Failed to resolve '1212' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:49:40] 🔴 Proxy 1212 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000002AE6D68D9F0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:49:40] ❌ Proxy 1212 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:49:40] ⚠️ Proxy 1212 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:49:40] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:49:46] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:49:47] 🔹 Chờ trang load
+[2025-10-16 17:49:47] ⏳ Chờ 6 giây...
+[2025-10-16 17:49:53] 🔹 Click nút ログイン
+[2025-10-16 17:49:53] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:49:54] ✅ Đã click DOM thành công!
+[2025-10-16 17:49:55] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:49:55] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:49:57] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:50:03] 🔍 URL không đổi (fast check).
+[2025-10-16 17:50:03] 🖼️ Lưu screenshot debug: debug_fast_login_tuyetbii27112003@gmail.com_1760611803.png
+[2025-10-16 17:50:03] 🔎 Snippet page_source (fast) 1600 ký tự đầu:
+[2025-10-16 17:50:03] <html><head>
+<title>Access Denied</title>
+</head><body>
+<h1>Access Denied</h1>
+ 
+You don't have permission to access "http://order.yodobashi.com/yc/login/action.html" on this server.<p>
+Reference #18.449e3617.1760611739.191395cb
+</p><p>https://errors.edgesuite.net/18.449e3617.1760611739.191395cb</p>
+
+
+</body></html>
+[2025-10-16 17:50:03] ❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.
+[2025-10-16 17:50:03] 🔹 
+[2025-10-16 17:50:03] ⏳ Chờ 8 giây...
+[2025-10-16 17:50:11] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:50:11] ⏳ Chờ 3 giây...
+[2025-10-16 17:50:14] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:50:14] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:50:18] ❌ Lỗi khi click_dom: Message: target frame detached
+  (failed to check if window was closed: disconnected: Unable to receive message from renderer)
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff608661f12]
+	(No symbol) [0x0x7ff608660e8d]
+	(No symbol) [0x0x7ff60867fbba]
+	(No symbol) [0x0x7ff6086e7734]
+	(No symbol) [0x0x7ff6086fed0a]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:18] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:50:18] ⏳ Chờ 6 giây...
+[2025-10-16 17:50:24] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:50:24] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:50:24] ❌ Lỗi khi click_dom: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: MicrosoftEdge=141.0.3537.71); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	GetHandleVerifier [0x0x7ff608ab9425+1848405]
+	(No symbol) [0x0x7ff608660cd0]
+	(No symbol) [0x0x7ff60867fbba]
+	(No symbol) [0x0x7ff6086e7734]
+	(No symbol) [0x0x7ff6086fed0a]
+	(No symbol) [0x0x7ff6086e1df3]
+	(No symbol) [0x0x7ff6086b5b36]
+	(No symbol) [0x0x7ff6086b4d80]
+	(No symbol) [0x0x7ff6086b5973]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	GetHandleVerifier [0x0x7ff608909bb4+80868]
+	GetHandleVerifier [0x0x7ff608909d03+81203]
+	GetHandleVerifier [0x0x7ff6088f8286+8886]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:24] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:50:24] ⏳ Chờ 6 giây...
+[2025-10-16 17:50:30] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:50:30] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:50:30] ❌ Lỗi khi click_dom: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:30] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:50:30] 💳 Bắt đầu điền thông tin thanh toán (is_new=True)
+[2025-10-16 17:50:30] ❌ Lỗi khi điền card_number: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:30] ❌ Lỗi khi chọn card_exp_month: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:30] ❌ Lỗi khi chọn card_exp_year: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:30] 🎉 Hoàn tất nhập thông tin thẻ mới.
+[2025-10-16 17:50:30] ⚠️ Không click được radio paymentTypeCode: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:30] ❌ Lỗi khi click nút Kế tiếp: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff608902a75+51877]
+	GetHandleVerifier [0x0x7ff608902ad4+51972]
+	(No symbol) [0x0x7ff608671149]
+	(No symbol) [0x0x7ff6086b44a3]
+	(No symbol) [0x0x7ff6086e1f52]
+	(No symbol) [0x0x7ff60868a525]
+	(No symbol) [0x0x7ff6086de9a1]
+	(No symbol) [0x0x7ff6086de139]
+	(No symbol) [0x0x7ff6086463b5]
+	(No symbol) [0x0x7ff60877e4a5]
+	(No symbol) [0x0x7ff60877a75d]
+	GetHandleVerifier [0x0x7ff60892d2b3+226019]
+	GetHandleVerifier [0x0x7ff60891c481+156849]
+	GetHandleVerifier [0x0x7ff608924979+190889]
+	(No symbol) [0x0x7ff608644ef3]
+	GetHandleVerifier [0x0x7ff608a6ed98+1543624]
+	BaseThreadInitThunk [0x0x7ffff351e8d7+23]
+	RtlUserThreadStart [0x0x7ffff49e8d9c+44]
+
+[2025-10-16 17:50:30] 🔹 
+[2025-10-16 17:50:30] ⏳ Chờ 3 giây...
+[2025-10-16 17:50:33] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:50:33] ⏳ Chờ 20 giây...
+[2025-10-16 17:50:53] ✅ Hoàn tất tài khoản tuyetbii27112003@gmail.com
+[2025-10-16 17:56:35] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 17:56:35] 🟢 Đã start thread cho tuyetbii27112003@gmail.com (idx 0)
+[2025-10-16 17:56:35] 
+--- 🔸 Bắt đầu xử lý tài khoản tuyetbii27112003@gmail.com ---
+[2025-10-16 17:56:42] 🔴 Proxy 1212 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002AE6D645FF0>: Failed to resolve '1212' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 17:56:45] 🔴 Proxy 1212 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000002AE6D68CE20>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 17:56:45] ❌ Proxy 1212 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 17:56:45] ⚠️ Proxy 1212 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 17:56:45] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 17:56:51] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 17:56:52] 🔹 Chờ trang load
+[2025-10-16 17:56:52] ⏳ Chờ 6 giây...
+[2025-10-16 17:56:58] 🔹 Click nút ログイン
+[2025-10-16 17:56:58] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 17:57:00] ✅ Đã click DOM thành công!
+[2025-10-16 17:57:01] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 17:57:01] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 17:57:07] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 17:57:09] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-16 17:57:09] 🎉 Fast login thành công (theo heuristics).
+[2025-10-16 17:57:09] 🔹 
+[2025-10-16 17:57:09] ⏳ Chờ 8 giây...
+[2025-10-16 17:57:17] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 17:57:17] ⏳ Chờ 3 giây...
+[2025-10-16 17:57:20] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 17:57:20] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 17:57:24] ✅ Đã click DOM thành công!
+[2025-10-16 17:57:25] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 17:57:25] ⏳ Chờ 6 giây...
+[2025-10-16 17:57:31] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 17:57:31] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 17:57:35] ✅ Đã click DOM thành công!
+[2025-10-16 17:57:36] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:57:36] ⏳ Chờ 6 giây...
+[2025-10-16 17:57:42] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 17:57:42] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 17:57:46] ✅ Đã click DOM thành công!
+[2025-10-16 17:57:47] 🔹 Điền thông tin thanh toán
+[2025-10-16 17:57:47] 💳 Bắt đầu điền thông tin thanh toán (is_new=True)
+[2025-10-16 17:57:47] ✅ Điền card_number: 121212121212
+[2025-10-16 17:57:48] ✅ Chọn card_exp_month: 3
+[2025-10-16 17:57:48] ✅ Chọn card_exp_year: 2029
+[2025-10-16 17:57:48] 🎉 Hoàn tất nhập thông tin thẻ mới.
+[2025-10-16 17:57:48] ✅ Đã click radio paymentTypeCode bằng JS.
+[2025-10-16 17:57:50] ✅ Đã click nút Kế tiếp
+[2025-10-16 17:57:51] 🔹 
+[2025-10-16 17:57:51] ⏳ Chờ 3 giây...
+[2025-10-16 17:57:54] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 17:57:54] ⏳ Chờ 20 giây...
+[2025-10-16 17:58:14] ✅ Hoàn tất tài khoản tuyetbii27112003@gmail.com
+[2025-10-16 18:03:06] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-16 18:03:06] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-16 18:03:06] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-16 18:03:14] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001DADE3DB6D0>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-16 18:03:16] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000001DADE3D91B0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-16 18:03:16] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-16 18:03:16] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-16 18:03:16] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-16 18:03:25] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-16 18:03:26] 🔹 Chờ trang load
+[2025-10-16 18:03:26] ⏳ Chờ 6 giây...
+[2025-10-16 18:03:32] 🔹 Click nút ログイン
+[2025-10-16 18:03:32] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-16 18:03:33] ✅ Đã click DOM thành công!
+[2025-10-16 18:03:34] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-16 18:03:34] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-16 18:03:43] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-16 18:03:45] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-16 18:03:45] 🎉 Fast login thành công (theo heuristics).
+[2025-10-16 18:03:45] 🔹 
+[2025-10-16 18:03:45] ⏳ Chờ 8 giây...
+[2025-10-16 18:03:53] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-16 18:03:53] ⏳ Chờ 3 giây...
+[2025-10-16 18:03:56] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-16 18:03:56] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-16 18:04:00] ✅ Đã click DOM thành công!
+[2025-10-16 18:04:01] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-16 18:04:01] ⏳ Chờ 6 giây...
+[2025-10-16 18:04:07] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-16 18:04:07] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-16 18:04:10] ✅ Đã click DOM thành công!
+[2025-10-16 18:04:11] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 18:04:11] ⏳ Chờ 6 giây...
+[2025-10-16 18:04:17] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-16 18:04:17] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-16 18:04:21] ✅ Đã click DOM thành công!
+[2025-10-16 18:04:23] 🔹 Điền thông tin thanh toán
+[2025-10-16 18:04:23] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-16 18:04:23] ✅ (send_keys) Điền card_cvv: 123
+[2025-10-16 18:04:23] 🎉 Hoàn tất nhập CVV.
+[2025-10-16 18:04:30] ✅ Đã click nút Thanh toán (attempt 1)
+[2025-10-16 18:04:31] 🔹 
+[2025-10-16 18:04:31] ⏳ Chờ 3 giây...
+[2025-10-16 18:04:34] 🔹 Chờ trang thanh toán tải xong
+[2025-10-16 18:04:34] ⏳ Chờ 20 giây...
+[2025-10-16 18:04:54] ✅ Hoàn tất tài khoản ttng477@gmail.com

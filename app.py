@@ -422,104 +422,216 @@ def run_workflow_for_account(acc):
                     # nếu cần gõ human-like cho các input, có thể mở rộng sau
                     time.sleep(0.5)
 
-            # ---- NEW: xử lý điền thông tin thanh toán thông minh ----
+                        # ---- NEW: xử lý điền thông tin thanh toán thông minh ----
             elif action == "fill_payment_form":
                 if not driver:
                     log_action("⚠️ Không có driver để nhập form thanh toán.")
                     continue
 
-                selectors = step.get("selectors", {})
+                selectors = step.get("selectors", {}) or {}
                 is_new = acc.get("is_new", False)
 
                 try:
                     log_action(f"💳 Bắt đầu điền thông tin thanh toán (is_new={is_new})")
 
-                    def fill_input(selector_key, value):
-                        """Điền input text như card_number, CVV"""
-                        sel = selectors.get(selector_key)
-                        if not sel or not value:
-                            log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
-                            return
+                    def safe_find(xpath, timeout=6):
                         try:
-                            WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
-                            el = driver.find_element(By.XPATH, sel)
-                            driver.execute_script("""
-                                var el = arguments[0], val = arguments[1];
-                                var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-                                nativeSetter.call(el, val);
-                                el.dispatchEvent(new Event('input', {bubbles:true}));
-                                el.dispatchEvent(new Event('change', {bubbles:true}));
-                            """, el, str(value))
-                            log_action(f"✅ Điền {selector_key}: {value}")
-                            time.sleep(0.4)
+                            return WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
+                        except Exception:
+                            return None
+
+                    def fill_input(selector_key, value, prefer_send_keys=False):
+                        """Điền input text như card_number hoặc CVV.
+                        Nếu prefer_send_keys=True cố gắng send_keys (human_type) trước, sau đó fallback JS setter."""
+                        sel = selectors.get(selector_key)
+                        if not sel or value in (None, ""):
+                            log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
+                            return False
+                        try:
+                            # 1) try visibility
+                            try:
+                                el = WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
+                            except Exception:
+                                el = safe_find(sel, timeout=4)
+                            if not el:
+                                # có thể element nằm trong iframe — thử dò iframe
+                                iframes = driver.find_elements(By.TAG_NAME, "iframe")
+                                found = False
+                                for fr in iframes:
+                                    try:
+                                        driver.switch_to.frame(fr)
+                                        found_el = driver.find_elements(By.XPATH, sel)
+                                        if found_el:
+                                            el = found_el[0]
+                                            found = True
+                                            log_action("ℹ️ Tìm thấy element trong iframe, đã switch vào iframe.")
+                                            break
+                                        driver.switch_to.default_content()
+                                    except Exception:
+                                        driver.switch_to.default_content()
+                                if not found:
+                                    log_action(f"❌ Không tìm thấy element cho {selector_key} bằng xpath: {sel}")
+                                    return False
+
+                            # Nếu element bị che phủ hoặc không interactable, scroll into view
+                            try:
+                                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", el)
+                            except Exception:
+                                pass
+
+                            # Nếu chỉ thích send_keys (ưu tiên cho CVV)
+                            if prefer_send_keys:
+                                try:
+                                    el.clear()
+                                except:
+                                    pass
+                                try:
+                                    human_type(driver, el, str(value), min_delay=0.03, max_delay=0.09)
+                                    log_action(f"✅ (send_keys) Điền {selector_key}: {value}")
+                                    time.sleep(0.3)
+                                    driver.switch_to.default_content()
+                                    return True
+                                except Exception as e:
+                                    log_action(f"⚠️ send_keys thất bại cho {selector_key}: {e} — fallback JS setter")
+
+                            # Fallback: JS setter (good for React)
+                            try:
+                                driver.execute_script("""
+                                    var el = arguments[0], val = arguments[1];
+                                    var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                                    if(nativeSetter) nativeSetter.call(el, val); else el.value = val;
+                                    el.dispatchEvent(new Event('input', {bubbles:true}));
+                                    el.dispatchEvent(new Event('change', {bubbles:true}));
+                                """, el, str(value))
+                                log_action(f"✅ (JS) Điền {selector_key}: {value}")
+                                time.sleep(0.3)
+                                driver.switch_to.default_content()
+                                return True
+                            except Exception as e:
+                                log_action(f"❌ JS setter thất bại cho {selector_key}: {e}")
+                                try:
+                                    driver.switch_to.default_content()
+                                except:
+                                    pass
+                                return False
+
                         except Exception as e:
                             log_action(f"❌ Lỗi khi điền {selector_key}: {e}")
+                            try:
+                                driver.switch_to.default_content()
+                            except:
+                                pass
+                            return False
 
                     def fill_select(selector_key, value):
-                        """Điền select dropdown (expMonth, expYear)"""
                         sel = selectors.get(selector_key)
-                        if not sel or not value:
+                        if not sel or value in (None, ""):
                             log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
-                            return
+                            return False
                         try:
                             WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
                             el = driver.find_element(By.XPATH, sel)
                             driver.execute_script("""
                                 var sel = arguments[0], val = arguments[1];
-                                var option = Array.from(sel.options).find(o => o.value === val);
+                                var option = Array.from(sel.options).find(o => o.value === val || o.text === val);
                                 if(option) sel.value = option.value;
                                 sel.dispatchEvent(new Event('change', {bubbles:true}));
                             """, el, str(value))
                             log_action(f"✅ Chọn {selector_key}: {value}")
-                            time.sleep(0.4)
+                            time.sleep(0.3)
+                            return True
                         except Exception as e:
                             log_action(f"❌ Lỗi khi chọn {selector_key}: {e}")
+                            return False
 
-                    # Điền thông tin thẻ
+                    # ----- thực hiện fill -----
                     if is_new:
-                        fill_input("card_number", acc.get("card_number"))
+                        # 1) số thẻ + exp month/year
+                        fill_input("card_number", acc.get("card_number"), prefer_send_keys=True)
                         fill_select("card_exp_month", acc.get("card_exp_month"))
                         fill_select("card_exp_year", acc.get("card_exp_year"))
-                        # Không điền CVV khi thẻ mới
-                    else:
-                        fill_input("card_cvv", acc.get("card_cvv"))
+                        log_action("🎉 Hoàn tất nhập thông tin thẻ mới.")
 
-                    log_action("🎉 Hoàn tất nhập thông tin thanh toán.")
+                        # 2) chọn radio (nếu có)
+                        radio_selector = selectors.get("payment_radio") or "//input[@id='a03']"
+                        try:
+                            radio = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, radio_selector)))
+                            driver.execute_script("arguments[0].click();", radio)
+                            log_action("✅ Đã click radio paymentTypeCode bằng JS.")
+                            time.sleep(0.5)
+                        except Exception as e:
+                            log_action(f"⚠️ Không click được radio paymentTypeCode: {e}")
 
-                    # ---- MỚI: chọn radio phương thức thanh toán ----
-                    try:
-                        radio_selector = "//input[@id='a03']"
-                        radio = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, radio_selector)))
-                        driver.execute_script("arguments[0].click();", radio)
-                        log_action("✅ Đã click radio paymentTypeCode bằng JS.")
-                        time.sleep(0.5)
-                    except Exception as e:
-                        log_action(f"⚠️ Không click được radio paymentTypeCode: {e}")
-
-                    # ---- CLICK NÚT KẾ TIẾP ----
-                    try:
-                        next_btn_selector = "/html/body/div[1]/div/div[2]/form/div[2]/div[1]/div[1]/div[2]/ul/li/div/a"
-                        
-                        # retry 3 lần nếu cần
+                        # 3) Click nút Kế tiếp (retry 3 lần)
+                        next_btn_selector = selectors.get("next_button") or "/html/body/div[1]/div/div[2]/form/div[2]/div[1]/div[1]/div[2]/ul/li/div/a"
+                        clicked = False
                         for attempt in range(3):
                             try:
-                                next_btn = WebDriverWait(driver, 8).until(
-                                    EC.presence_of_element_located((By.XPATH, next_btn_selector))
-                                )
+                                next_btn = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, next_btn_selector)))
+                                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", next_btn)
                                 driver.execute_script("arguments[0].click();", next_btn)
                                 log_action(f"✅ Đã click nút Kế tiếp (attempt {attempt+1})")
+                                clicked = True
                                 time.sleep(1)
                                 break
-                            except Exception as e_inner:
-                                log_action(f"⚠️ Click attempt {attempt+1} thất bại: {e_inner}")
-                                time.sleep(0.5)
-                        else:
+                            except Exception as e:
+                                log_action(f"⚠️ Click Kế tiếp attempt {attempt+1} thất bại: {e}")
+                                time.sleep(0.6)
+                        if not clicked:
                             log_action("❌ Không click được nút Kế tiếp sau 3 lần thử.")
-                    except Exception as e:
-                        log_action(f"❌ Lỗi khi tìm/ click nút Kế tiếp: {e}")
+
+                    else:
+                        # chỉ điền CVV
+                        cvv_filled = False
+                        # 1) thử selector từ workflow
+                        if fill_input("card_cvv", acc.get("card_cvv"), prefer_send_keys=True):
+                            cvv_filled = True
+                        else:
+                            # 2) fallback: tìm bằng name attribute
+                            try:
+                                els = driver.find_elements(By.NAME, "creditCard.securityCode")
+                                if els:
+                                    el = els[0]
+                                    human_type(driver, el, str(acc.get("card_cvv", "")), min_delay=0.03, max_delay=0.09)
+                                    log_action("✅ Điền CVV bằng selector name=creditCard.securityCode")
+                                    cvv_filled = True
+                                else:
+                                    # 3) fallback class
+                                    els2 = driver.find_elements(By.CSS_SELECTOR, "input.js_c_securityCode")
+                                    if els2:
+                                        el = els2[0]
+                                        human_type(driver, el, str(acc.get("card_cvv", "")), min_delay=0.03, max_delay=0.09)
+                                        log_action("✅ Điền CVV bằng class js_c_securityCode")
+                                        cvv_filled = True
+                            except Exception as e:
+                                log_action(f"⚠️ Fallback điền CVV lỗi: {e}")
+
+                        if not cvv_filled:
+                            log_action("❌ Không thể điền CVV — có thể element nằm trong iframe hoặc selector sai.")
+                        else:
+                            log_action("🎉 Hoàn tất nhập CVV.")
+
+                        # Click nút Thanh toán (dùng XPath bạn cung cấp, retry)
+                        pay_btn_selector = selectors.get("pay_button") or "/html/body/div[1]/div/div[2]/form/div[2]/div/table/tbody/tr/td[2]/div[1]/div[1]/div/a"
+                        clicked = False
+                        for attempt in range(4):
+                            try:
+                                pay_btn = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, pay_btn_selector)))
+                                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", pay_btn)
+                                driver.execute_script("arguments[0].click();", pay_btn)
+                                log_action(f"✅ Đã click nút Thanh toán (attempt {attempt+1})")
+                                clicked = True
+                                time.sleep(1)
+                                break
+                            except Exception as e:
+                                log_action(f"⚠️ Click Thanh toán attempt {attempt+1} thất bại: {e}")
+                                time.sleep(0.6)
+                        if not clicked:
+                            log_action("❌ Không click được nút Thanh toán sau 4 lần thử.")
 
                 except Exception as e:
                     log_action(f"❌ Lỗi khi thực hiện fill_payment_form: {e}")
+
 
             else:
                 log_action(f"⚠️ Action chưa được hỗ trợ: {action}")

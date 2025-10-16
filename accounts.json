@@ -6,11 +6,11 @@
     "url": "https://www.yodobashi.com/product/100000001006011748/",
     "quantity": 12,
     "is_new": true,
-    "run": true,
+    "run": false,
     "card_cvv": "123",
     "run_hour": 9,
     "run_minute": 30,
-    "card_number": "12312312131321312",
+    "card_number": "121212121212",
     "card_exp_month": "3",
     "card_exp_year": "2029"
   },
