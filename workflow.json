@@ -8,53 +8,24 @@
   {
     "step": 2,
     "action": "sleep",
-    "seconds": 5,
+    "seconds": 6,
     "desc": "Chờ trang load"
   },
   {
-    "step": 3,
-    "action": "click_image",
-    "image": "add_to_cart.png",
-    "desc": "Nhấn nút thêm vào giỏ hàng"
+    "action": "click_dom",
+    "selector": "//a[contains(text(),'ログイン')]",
+    "by": "xpath",
+    "desc": "Click nút ログイン"
   },
   {
-    "step": 4,
+    "action": "fill_login_form",
+    "user_selector": "//*[@id='memberId']",
+    "pass_selector": "//*[@id='password']",
+    "submit_selector": "//*[@id='js_i_login0']",
+    "desc": "Nhập thông tin đăng nhập và nhấn ログイン"
+  },
+  {
     "action": "sleep",
-    "seconds": 3,
-    "desc": "Chờ giỏ hàng cập nhật"
-  },
-  {
-    "step": 5,
-    "action": "click_image",
-    "image": "checkout.png",
-    "desc": "Nhấn nút thanh toán"
-  },
-  {
-    "step": 6,
-    "action": "sleep",
-    "seconds": 5,
-    "desc": "Chờ trang thanh toán tải"
-  },
-  {
-    "step": 7,
-    "action": "fill_form",
-    "fields": {
-      "card_number": "{{selected_account.card_number}}",
-      "exp_month": "{{selected_account.exp_month}}",
-      "exp_year": "{{selected_account.exp_year}}"
-    },
-    "desc": "Điền thông tin thẻ từ account JSON"
-  },
-  {
-    "step": 8,
-    "action": "click_image",
-    "image": "confirm_payment.png",
-    "desc": "Xác nhận thanh toán"
-  },
-  {
-    "step": 9,
-    "action": "sleep",
-    "seconds": 10,
-    "desc": "Đợi xác nhận đơn hàng"
+    "seconds": 8
   }
 ]

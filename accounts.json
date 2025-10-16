@@ -1,18 +1,28 @@
 [
   {
-    "id": 1760096119297,
-    "username": "Khanhduya9",
-    "password": "11112002",
+    "username": "tuyetbii27112003@gmail.com",
+    "password": "Ductu2306",
+    "proxy": "1212",
+    "url": "https://www.yodobashi.com/product/100000001003891482/",
+    "quantity": 12,
+    "is_new": true,
+    "run": true,
+    "card_number": "123123221",
+    "card_exp_month": "",
+    "card_exp_year": "",
+    "card_cvv": "123"
+  },
+  {
+    "username": "ttng477@gmail.com",
+    "password": "Ductu2306",
     "proxy": "123123",
     "url": "https://www.yodobashi.com/product/100000001003891482/",
     "quantity": 12,
     "is_new": true,
-    "card_number": "123123221",
-    "exp_month": "",
-    "exp_year": "",
-    "card_cvv": "123",
     "run": false,
+    "card_number": "123123221",
     "card_exp_month": "",
-    "card_exp_year": ""
+    "card_exp_year": "",
+    "card_cvv": "123"
   }
 ]

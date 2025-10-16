@@ -36,8 +36,27 @@
     </div>
   </form>
 
-  <pre id="result"></pre>
+  <!-- Khung hiển thị log -->
+  <pre id="logArea" style="background:#111;color:#0f0;padding:10px;height:300px;overflow-y:auto;border-radius:5px;margin-top:10px;"></pre>
 
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script>
+    // --- Auto cập nhật log ---
+    async function refreshLogs() {
+      try {
+        const res = await fetch("/logs");
+        const data = await res.json();
+        const logArea = document.getElementById("logArea");
+        logArea.textContent = data.logs || "⚠️ Chưa có log nào!";
+        logArea.scrollTop = logArea.scrollHeight;
+      } catch (err) {
+        console.error("Lỗi khi tải log:", err);
+      }
+    }
+
+    // Tự động cập nhật log mỗi 2 giây
+    setInterval(refreshLogs, 2000);
+  </script>
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

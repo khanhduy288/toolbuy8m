@@ -8,6 +8,14 @@ function makeMonthOptions() {
   return html;
 }
 
+function startLogAutoRefresh() {
+  setInterval(async () => {
+    const res = await fetch("/logs");
+    const data = await res.json();
+    document.getElementById("logArea").innerText = data.logs;
+  }, 2000);
+}
+
 function makeYearOptions() {
   const now = new Date();
   const start = now.getFullYear();
@@ -147,6 +155,7 @@ async function saveAccounts() {
 }
 
 // ---- chạy workflow ----
+// ---- Chạy workflow ----
 async function startWorkflow() {
   const rows = document.querySelectorAll("#accountTableBody tr");
   const selected = Array.from(rows)
@@ -160,6 +169,7 @@ async function startWorkflow() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ accounts: selected })
   });
+
   const data = await res.json();
   document.getElementById("result").innerText = data.result || "✅ Đã gửi yêu cầu!";
 }
