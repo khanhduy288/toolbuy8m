@@ -1,29 +1,46 @@
 // ---- tạo option tháng và năm ----
 function makeMonthOptions() {
   let html = '<option value="">MM</option>';
-  for (let m = 1; m <= 12; m++) {
-    const mm = m.toString().padStart(2, '0');
-    html += `<option value="${mm}">${mm}</option>`;
-  }
+  for (let m = 1; m <= 12; m++) html += `<option value="${m}">${m}</option>`;
   return html;
-}
-
-function startLogAutoRefresh() {
-  setInterval(async () => {
-    const res = await fetch("/logs");
-    const data = await res.json();
-    document.getElementById("logArea").innerText = data.logs;
-  }, 2000);
 }
 
 function makeYearOptions() {
   const now = new Date();
   const start = now.getFullYear();
   let html = '<option value="">YYYY</option>';
-  for (let y = start; y <= start + 10; y++) {
-    html += `<option value="${y}">${y}</option>`;
-  }
+  for (let y = start; y <= start + 10; y++) html += `<option value="${y}">${y}</option>`;
   return html;
+}
+
+// ---- tạo option phút ----
+function makeMinuteOptions() {
+  let html = '';
+  for (let m = 0; m < 60; m++) html += `<option value="${m}">${m.toString().padStart(2,'0')}</option>`;
+  return html;
+}
+
+// ---- auto refresh log ----
+function startLogAutoRefresh() {
+  setInterval(async () => {
+    try {
+      const res = await fetch("/logs");
+      const data = await res.json();
+      const logArea = document.getElementById("logArea");
+      logArea.innerText = data.logs;
+      logArea.scrollTop = logArea.scrollHeight;
+    } catch (err) {
+      console.error("Lỗi khi tải log:", err);
+    }
+  }, 2000);
+}
+
+// ---- lấy giờ + phút hiện tại JST ----
+function getJapanTime() {
+  const now = new Date();
+  const hour = (now.getUTCHours() + 9) % 24;
+  const minute = now.getUTCMinutes();
+  return { hour, minute };
 }
 
 // ---- tạo 1 dòng tài khoản ----
@@ -41,10 +58,18 @@ function createRow(account = {}) {
     <td><input type="text" name="card_number" class="card-number" value="${account.card_number || ""}" style="display:${account.is_new ? '' : 'none'}"></td>
     <td><select name="card_exp_month" class="card-exp-month" style="display:${account.is_new ? '' : 'none'}">${makeMonthOptions()}</select></td>
     <td><select name="card_exp_year" class="card-exp-year" style="display:${account.is_new ? '' : 'none'}">${makeYearOptions()}</select></td>
-    <td><input type="text" name="card_cvv" class="card-cvv" value="${account.card_cvv || ""}" style="display:${account.is_new ? '' : 'none'}"></td>
+    <td><input type="text" name="card_cvv" class="card-cvv" value="${account.card_cvv || ""}"></td>
 
     <td><input type="text" name="url" value="${account.url || ""}"></td>
     <td><input type="number" name="quantity" value="${account.quantity || 1}"></td>
+
+    <td>
+      <select class="run-hour">
+        ${Array.from({length:24}, (_,h) => `<option value="${h}" ${account.run_hour==h?"selected":""}>${h}</option>`).join('')}
+      </select> :
+      <select class="run-minute">${makeMinuteOptions()}</select>
+    </td>
+
     <td>
       <button type="button" class="save-one">💾 Save</button>
       <button type="button" class="remove-row">❌</button>
@@ -53,50 +78,42 @@ function createRow(account = {}) {
 
   tbody.appendChild(row);
 
-  // nếu có dữ liệu exp => set lại
   if (account.card_exp_month) row.querySelector('.card-exp-month').value = account.card_exp_month;
   if (account.card_exp_year) row.querySelector('.card-exp-year').value = account.card_exp_year;
+  if (account.run_minute != null) row.querySelector('.run-minute').value = account.run_minute;
 
   attachRowHandlers(row, account);
 }
 
-// ---- xử lý sự kiện trong từng dòng ----
+// ---- xử lý sự kiện ----
 function attachRowHandlers(row, account) {
   const isNew = row.querySelector('.is-new');
   const fields = [
     row.querySelector('.card-number'),
     row.querySelector('.card-exp-month'),
-    row.querySelector('.card-exp-year'),
-    row.querySelector('.card-cvv')
+    row.querySelector('.card-exp-year')
   ];
-
   isNew.addEventListener('change', () => {
     const show = isNew.checked;
     fields.forEach(f => f.style.display = show ? '' : 'none');
   });
 
-  // Xóa tài khoản
   row.querySelector('.remove-row').addEventListener('click', async () => {
     const id = account?.id;
     if (id) {
       if (!confirm("Bạn có chắc muốn xóa tài khoản này không?")) return;
-
       try {
         const res = await fetch(`/delete_account/${id}`, { method: "DELETE" });
         const data = await res.json();
         alert(data.message || "✅ Đã xóa!");
-
         if (res.ok) row.remove();
       } catch (err) {
         alert("❌ Lỗi khi gọi API xóa!");
         console.error(err);
       }
-    } else {
-      row.remove();
-    }
+    } else row.remove();
   });
 
-  // Lưu 1 dòng
   row.querySelector('.save-one').addEventListener('click', async () => {
     const acc = extractAccountFromRow(row);
     const res = await fetch("/save_one", {
@@ -109,7 +126,7 @@ function attachRowHandlers(row, account) {
   });
 }
 
-// ---- lấy data từ 1 dòng ----
+// ---- lấy data từ dòng ----
 function extractAccountFromRow(row) {
   const acc = {
     username: row.querySelector('[name="username"]').value.trim(),
@@ -118,18 +135,21 @@ function extractAccountFromRow(row) {
     url: row.querySelector('[name="url"]').value.trim(),
     quantity: parseInt(row.querySelector('[name="quantity"]').value.trim() || 1),
     is_new: row.querySelector('.is-new').checked,
-    run: row.querySelector('.run-check').checked
+    run: row.querySelector('.run-check').checked,
+    card_cvv: row.querySelector('.card-cvv').value.trim(),
+    run_hour: parseInt(row.querySelector('.run-hour').value, 10),
+    run_minute: parseInt(row.querySelector('.run-minute').value, 10)
   };
+
   if (acc.is_new) {
     acc.card_number = row.querySelector('.card-number').value.trim();
     acc.card_exp_month = row.querySelector('.card-exp-month').value;
     acc.card_exp_year = row.querySelector('.card-exp-year').value;
-    acc.card_cvv = row.querySelector('.card-cvv').value.trim();
   }
   return acc;
 }
 
-// ---- load danh sách tài khoản ----
+// ---- load tài khoản ----
 async function loadAccounts() {
   const res = await fetch("/accounts");
   if (!res.ok) return alert("Không thể tải danh sách tài khoản!");
@@ -140,11 +160,9 @@ async function loadAccounts() {
 
 function addRow() { createRow(); }
 
-// ---- lưu tất cả tài khoản ----
 async function saveAccounts() {
   const rows = document.querySelectorAll("#accountTableBody tr");
   const accounts = Array.from(rows).map(r => extractAccountFromRow(r));
-
   const res = await fetch("/save", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -155,24 +173,46 @@ async function saveAccounts() {
 }
 
 // ---- chạy workflow ----
-// ---- Chạy workflow ----
-async function startWorkflow() {
+async function startWorkflow(runNow = false) {
+  const { hour: currentHour, minute: currentMinute } = getJapanTime();
   const rows = document.querySelectorAll("#accountTableBody tr");
-  const selected = Array.from(rows)
+
+  let selected = Array.from(rows)
     .filter(r => r.querySelector('.run-check').checked)
     .map(r => extractAccountFromRow(r));
 
-  if (!selected.length) return alert("⚠️ Chưa chọn tài khoản nào để chạy!");
+  if (!runNow) {
+    // Lọc theo giờ/phút
+    selected = selected.filter(acc => acc.run_hour === currentHour && acc.run_minute === currentMinute);
+    if (!selected.length) {
+      console.log(`⏱️ Không có tài khoản nào chạy giờ ${currentHour}:${currentMinute} JST`);
+      return;
+    }
+  }
+
+  console.log("✅ Chạy tài khoản:", selected); // Debug danh sách tài khoản được chọn
 
   const res = await fetch("/start", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ accounts: selected })
   });
-
   const data = await res.json();
-  document.getElementById("result").innerText = data.result || "✅ Đã gửi yêu cầu!";
+  document.getElementById("result").innerText = data.result || `✅ Đã gửi yêu cầu cho ${selected.length} tài khoản!`;
 }
 
+
+// ---- tự động kiểm tra mỗi 1 phút ----
+setInterval(() => startWorkflow(false), 60000);
+
 // ---- khởi động ----
-loadAccounts();
+document.addEventListener("DOMContentLoaded", () => {
+  loadAccounts();
+  startLogAutoRefresh();
+
+  // gắn nút "Chạy ngay" nếu có
+  const runNowBtn = document.getElementById("runNowBtn");
+  if (runNowBtn) {
+    runNowBtn.addEventListener("click", () => startWorkflow(true));
+  }
+});

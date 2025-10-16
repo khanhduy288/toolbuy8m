@@ -23,6 +23,7 @@
           <th>CVV</th>
           <th>Link sản phẩm</th>
           <th>Số lượng</th>
+          <th>Giờ chạy (JST)</th>
           <th>Hành động</th>
         </tr>
       </thead>
@@ -32,7 +33,8 @@
     <div class="buttons">
       <button type="button" onclick="addRow()">➕ Thêm dòng</button>
       <button type="button" onclick="saveAccounts()">💾 Lưu tất cả</button>
-      <button type="button" onclick="startWorkflow()">▶️ Start Workflow</button>
+      <button type="button" onclick="startWorkflow()">▶️ Start theo lịch</button>
+      <button type="button" onclick="startWorkflow(true)">⚡ Chạy ngay</button>
     </div>
   </form>
 

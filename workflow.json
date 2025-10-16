@@ -27,5 +27,57 @@
   {
     "action": "sleep",
     "seconds": 8
+  },
+  {
+    "action": "sleep",
+    "seconds": 3,
+    "desc": "Chờ trang sản phẩm hiển thị đầy đủ"
+  },
+  {
+    "action": "click_dom",
+    "selector": "//*[@id='js_m_submitRelated']",
+    "by": "xpath",
+    "desc": "Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)"
+  },
+  {
+    "action": "sleep",
+    "seconds": 6,
+    "desc": "Chờ giỏ hàng cập nhật"
+  },
+  {
+    "action": "click_dom",
+    "selector": "//a[span[contains(text(),'購入手続きに進む')]]",
+    "by": "xpath",
+    "desc": "Click đúng thẻ <a> chứa span 購入手続きに進む"
+  },
+  {
+    "action": "sleep",
+    "seconds": 6,
+    "desc": "Chờ trang thanh toán tải xong"
+  },
+  {
+    "action": "click_dom",
+    "selector": "//*[@id='sc_i_buy']",
+    "by": "xpath",
+    "desc": "Click nút 次へ進む (Tiếp tục sang bước tiếp theo)"
+  },
+  {
+    "action": "fill_payment_form",
+    "desc": "Điền thông tin thanh toán",
+    "selectors": {
+      "card_number": "//input[@id='cardNumber' or @name='paymentDetails[0].cardNo']",
+      "card_exp_month": "//select[@id='cardExpirationMonth' or @name='paymentDetails[0].limitMonth']",
+      "card_exp_year": "//select[@id='cardExpirationYear' or @name='paymentDetails[0].limitYear']",
+      "card_cvv": "//input[@name='creditCard.securityCode']"
+    }
+  },
+  {
+    "action": "sleep",
+    "seconds": 3
+  },
+  {
+    "action": "sleep",
+    "seconds": 20,
+    "desc": "Chờ trang thanh toán tải xong"
   }
 ]

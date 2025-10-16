@@ -421,6 +421,106 @@ def run_workflow_for_account(acc):
                     log_action(f"✏️ Điền {k}: {val}")
                     # nếu cần gõ human-like cho các input, có thể mở rộng sau
                     time.sleep(0.5)
+
+            # ---- NEW: xử lý điền thông tin thanh toán thông minh ----
+            elif action == "fill_payment_form":
+                if not driver:
+                    log_action("⚠️ Không có driver để nhập form thanh toán.")
+                    continue
+
+                selectors = step.get("selectors", {})
+                is_new = acc.get("is_new", False)
+
+                try:
+                    log_action(f"💳 Bắt đầu điền thông tin thanh toán (is_new={is_new})")
+
+                    def fill_input(selector_key, value):
+                        """Điền input text như card_number, CVV"""
+                        sel = selectors.get(selector_key)
+                        if not sel or not value:
+                            log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
+                            return
+                        try:
+                            WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
+                            el = driver.find_element(By.XPATH, sel)
+                            driver.execute_script("""
+                                var el = arguments[0], val = arguments[1];
+                                var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                                nativeSetter.call(el, val);
+                                el.dispatchEvent(new Event('input', {bubbles:true}));
+                                el.dispatchEvent(new Event('change', {bubbles:true}));
+                            """, el, str(value))
+                            log_action(f"✅ Điền {selector_key}: {value}")
+                            time.sleep(0.4)
+                        except Exception as e:
+                            log_action(f"❌ Lỗi khi điền {selector_key}: {e}")
+
+                    def fill_select(selector_key, value):
+                        """Điền select dropdown (expMonth, expYear)"""
+                        sel = selectors.get(selector_key)
+                        if not sel or not value:
+                            log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
+                            return
+                        try:
+                            WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
+                            el = driver.find_element(By.XPATH, sel)
+                            driver.execute_script("""
+                                var sel = arguments[0], val = arguments[1];
+                                var option = Array.from(sel.options).find(o => o.value === val);
+                                if(option) sel.value = option.value;
+                                sel.dispatchEvent(new Event('change', {bubbles:true}));
+                            """, el, str(value))
+                            log_action(f"✅ Chọn {selector_key}: {value}")
+                            time.sleep(0.4)
+                        except Exception as e:
+                            log_action(f"❌ Lỗi khi chọn {selector_key}: {e}")
+
+                    # Điền thông tin thẻ
+                    if is_new:
+                        fill_input("card_number", acc.get("card_number"))
+                        fill_select("card_exp_month", acc.get("card_exp_month"))
+                        fill_select("card_exp_year", acc.get("card_exp_year"))
+                        # Không điền CVV khi thẻ mới
+                    else:
+                        fill_input("card_cvv", acc.get("card_cvv"))
+
+                    log_action("🎉 Hoàn tất nhập thông tin thanh toán.")
+
+                    # ---- MỚI: chọn radio phương thức thanh toán ----
+                    try:
+                        radio_selector = "//input[@id='a03']"
+                        radio = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, radio_selector)))
+                        driver.execute_script("arguments[0].click();", radio)
+                        log_action("✅ Đã click radio paymentTypeCode bằng JS.")
+                        time.sleep(0.5)
+                    except Exception as e:
+                        log_action(f"⚠️ Không click được radio paymentTypeCode: {e}")
+
+                    # ---- CLICK NÚT KẾ TIẾP ----
+                    try:
+                        next_btn_selector = "/html/body/div[1]/div/div[2]/form/div[2]/div[1]/div[1]/div[2]/ul/li/div/a"
+                        
+                        # retry 3 lần nếu cần
+                        for attempt in range(3):
+                            try:
+                                next_btn = WebDriverWait(driver, 8).until(
+                                    EC.presence_of_element_located((By.XPATH, next_btn_selector))
+                                )
+                                driver.execute_script("arguments[0].click();", next_btn)
+                                log_action(f"✅ Đã click nút Kế tiếp (attempt {attempt+1})")
+                                time.sleep(1)
+                                break
+                            except Exception as e_inner:
+                                log_action(f"⚠️ Click attempt {attempt+1} thất bại: {e_inner}")
+                                time.sleep(0.5)
+                        else:
+                            log_action("❌ Không click được nút Kế tiếp sau 3 lần thử.")
+                    except Exception as e:
+                        log_action(f"❌ Lỗi khi tìm/ click nút Kế tiếp: {e}")
+
+                except Exception as e:
+                    log_action(f"❌ Lỗi khi thực hiện fill_payment_form: {e}")
+
             else:
                 log_action(f"⚠️ Action chưa được hỗ trợ: {action}")
 
@@ -433,7 +533,6 @@ def run_workflow_for_account(acc):
                 driver.quit()
             except:
                 pass
-
 
 # =========================
 # ROUTES (phần còn lại giữ nguyên)
