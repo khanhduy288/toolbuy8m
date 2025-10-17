@@ -1,0 +1,41 @@
+[
+  {
+    "step": 1,
+    "action": "open_url",
+    "url": "{{selected_account.url}}",
+    "desc": "Mở link sản phẩm từ account đã chọn"
+  },
+  {
+    "step": 2,
+    "action": "sleep",
+    "seconds": 6,
+    "desc": "Chờ trang load"
+  },
+  {
+    "action": "click_dom",
+    "selector": "//a[contains(text(),'ログイン')]",
+    "by": "xpath",
+    "desc": "Click nút ログイン"
+  },
+  {
+    "action": "fill_login_form",
+    "user_selector": "//*[@id='memberId']",
+    "pass_selector": "//*[@id='password']",
+    "submit_selector": "//*[@id='js_i_login0']",
+    "desc": "Nhập thông tin đăng nhập và nhấn ログイン"
+  },
+  {
+    "action": "sleep",
+    "seconds": 8
+  },
+  {
+    "action": "sleep",
+    "seconds": 3,
+    "desc": "Chờ trang sản phẩm hiển thị đầy đủ"
+  },
+  {
+    "action": "sleep",
+    "seconds": 20,
+    "desc": "Chờ trang thanh toán tải xong"
+  }
+]

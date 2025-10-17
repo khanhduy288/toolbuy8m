@@ -2584,3 +2584,587 @@ Stacktrace:
 [2025-10-16 18:04:34] 🔹 Chờ trang thanh toán tải xong
 [2025-10-16 18:04:34] ⏳ Chờ 20 giây...
 [2025-10-16 18:04:54] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-17 14:45:33] 🎯 Bắt đầu chạy tracking cho 7 tài khoản...
+[2025-10-17 14:45:33] 🟢 Tracking thread 1/7: NoName
+[2025-10-17 14:45:33] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:33] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:33] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:35] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:36] 🔹 Chờ trang load
+[2025-10-17 14:45:36] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:36] 🟢 Tracking thread 2/7: NoName
+[2025-10-17 14:45:36] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:36] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:36] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:37] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:39] 🔹 Chờ trang load
+[2025-10-17 14:45:39] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:39] 🟢 Tracking thread 3/7: NoName
+[2025-10-17 14:45:39] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:39] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:39] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:40] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:42] 🔹 Chờ trang load
+[2025-10-17 14:45:42] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:42] 🔹 Click nút ログイン
+[2025-10-17 14:45:42] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:45:42] 🟢 Tracking thread 4/7: NoName
+[2025-10-17 14:45:42] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:42] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:42] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:44] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:45] 🔹 Click nút ログイン
+[2025-10-17 14:45:45] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:45:45] 🔹 Chờ trang load
+[2025-10-17 14:45:45] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:45] 🟢 Tracking thread 5/7: NoName
+[2025-10-17 14:45:45] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:45] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:45] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:47] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:48] 🔹 Click nút ログイン
+[2025-10-17 14:45:48] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:45:48] 🟢 Tracking thread 6/7: NoName
+[2025-10-17 14:45:48] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:48] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:48] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:48] ❌ Lỗi khi click_dom: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: MicrosoftEdge=141.0.3537.71); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	GetHandleVerifier [0x0x7ff68bdf9425+1848405]
+	(No symbol) [0x0x7ff68b9a0cd0]
+	(No symbol) [0x0x7ff68b9bfbba]
+	(No symbol) [0x0x7ff68ba27734]
+	(No symbol) [0x0x7ff68ba3ed0a]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:48] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 14:45:48] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 14:45:48] ❌ Lỗi khi thực hiện fast fill_login_form: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9f44a3]
+	(No symbol) [0x0x7ff68ba21f52]
+	(No symbol) [0x0x7ff68b9ca525]
+	(No symbol) [0x0x7ff68ba1e9a1]
+	(No symbol) [0x0x7ff68ba1e139]
+	(No symbol) [0x0x7ff68b9863b5]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	(No symbol) [0x0x7ff68b984ef3]
+	GetHandleVerifier [0x0x7ff68bdaed98+1543624]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:48] 🔹 
+[2025-10-17 14:45:48] ⏳ Chờ 8 giây...
+[2025-10-17 14:45:48] 🔹 Chờ trang load
+[2025-10-17 14:45:48] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:50] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:51] 🔹 Click nút ログイン
+[2025-10-17 14:45:51] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:45:51] ❌ Lỗi khi click_dom: Message: invalid session id: session deleted as the browser has closed the connection
+from disconnected: not connected to DevTools
+  (Session info: MicrosoftEdge=141.0.3537.71); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	GetHandleVerifier [0x0x7ff68bdf9425+1848405]
+	(No symbol) [0x0x7ff68b9a0cd0]
+	(No symbol) [0x0x7ff68b9bfbba]
+	(No symbol) [0x0x7ff68ba27734]
+	(No symbol) [0x0x7ff68ba3ed0a]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:51] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 14:45:51] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 14:45:51] ❌ Lỗi khi thực hiện fast fill_login_form: Message: invalid session id; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidsessionidexception
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9f44a3]
+	(No symbol) [0x0x7ff68ba21f52]
+	(No symbol) [0x0x7ff68b9ca525]
+	(No symbol) [0x0x7ff68ba1e9a1]
+	(No symbol) [0x0x7ff68ba1e139]
+	(No symbol) [0x0x7ff68b9863b5]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	(No symbol) [0x0x7ff68b984ef3]
+	GetHandleVerifier [0x0x7ff68bdaed98+1543624]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:51] 🔹 
+[2025-10-17 14:45:51] ⏳ Chờ 8 giây...
+[2025-10-17 14:45:51] 🔹 Chờ trang load
+[2025-10-17 14:45:51] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:51] 🟢 Tracking thread 7/7: NoName
+[2025-10-17 14:45:51] 
+--- 🔸 Bắt đầu xử lý tài khoản None ---
+[2025-10-17 14:45:51] ℹ️ Không có proxy trong account → dùng IP thật mặc định.
+[2025-10-17 14:45:51] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:45:53] ⚠️ Lỗi khi load target {{selected_account.url}}: Message: invalid argument
+  (Session info: MicrosoftEdge=141.0.3537.71)
+Stacktrace:
+	GetHandleVerifier [0x0x7ff68bc42a75+51877]
+	GetHandleVerifier [0x0x7ff68bc42ad4+51972]
+	(No symbol) [0x0x7ff68b9b1149]
+	(No symbol) [0x0x7ff68b9a1602]
+	(No symbol) [0x0x7ff68b9a002e]
+	(No symbol) [0x0x7ff68b9a051c]
+	(No symbol) [0x0x7ff68b9b49aa]
+	(No symbol) [0x0x7ff68ba3f92e]
+	(No symbol) [0x0x7ff68ba2212a]
+	(No symbol) [0x0x7ff68b9f667b]
+	(No symbol) [0x0x7ff68ba3f3d2]
+	(No symbol) [0x0x7ff68ba21df3]
+	(No symbol) [0x0x7ff68b9f5b36]
+	(No symbol) [0x0x7ff68b9f4d80]
+	(No symbol) [0x0x7ff68b9f5973]
+	(No symbol) [0x0x7ff68babe4a5]
+	(No symbol) [0x0x7ff68baba75d]
+	GetHandleVerifier [0x0x7ff68bc6d2b3+226019]
+	GetHandleVerifier [0x0x7ff68bc5c481+156849]
+	GetHandleVerifier [0x0x7ff68bc64979+190889]
+	GetHandleVerifier [0x0x7ff68bc49bb4+80868]
+	GetHandleVerifier [0x0x7ff68bc49d03+81203]
+	GetHandleVerifier [0x0x7ff68bc38286+8886]
+	BaseThreadInitThunk [0x0x7ffcc71fe8d7+23]
+	RtlUserThreadStart [0x0x7ffcc7fc8d9c+44]
+
+[2025-10-17 14:45:54] 🔹 Chờ trang load
+[2025-10-17 14:45:54] ⏳ Chờ 6 giây...
+[2025-10-17 14:45:54] 🔹 Click nút ログイン
+[2025-10-17 14:45:54] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:45:56] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-17 14:45:56] ⏳ Chờ 3 giây...
+[2025-10-17 14:45:57] 🔹 Click nút ログイン
+[2025-10-17 14:45:57] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:46:13] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-17 14:46:13] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-17 14:46:13] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 14:46:20] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000016A78DDBB50>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-17 14:46:23] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x0000016A797F39D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-17 14:46:23] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-17 14:46:23] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-17 14:46:23] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 14:46:28] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-17 14:46:29] 🔹 Chờ trang load
+[2025-10-17 14:46:29] ⏳ Chờ 6 giây...
+[2025-10-17 14:46:35] 🔹 Click nút ログイン
+[2025-10-17 14:46:35] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 14:46:37] ✅ Đã click DOM thành công!
+[2025-10-17 14:46:38] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 14:46:38] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 14:46:48] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-17 14:46:50] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-17 14:46:50] 🎉 Fast login thành công (theo heuristics).
+[2025-10-17 14:46:50] 🔹 
+[2025-10-17 14:46:50] ⏳ Chờ 8 giây...
+[2025-10-17 14:46:58] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-17 14:46:58] ⏳ Chờ 3 giây...
+[2025-10-17 14:47:01] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-17 14:47:01] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-17 14:47:04] ✅ Đã click DOM thành công!
+[2025-10-17 14:47:06] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-17 14:47:06] ⏳ Chờ 6 giây...
+[2025-10-17 14:55:58] ❌ Lỗi khi chạy tracking: 415 Unsupported Media Type: Did not attempt to load JSON data because the request Content-Type was not 'application/json'.
+[2025-10-17 15:06:30] 🔹 Bắt đầu chạy tracking cho account: ttng477@gmail.com (7 bước)
+[2025-10-17 15:06:30] [1/7] ▶️ Đang chạy action: open_url
+[2025-10-17 15:06:31] [2/7] ▶️ Đang chạy action: sleep
+[2025-10-17 15:06:32] [3/7] ▶️ Đang chạy action: click_dom
+[2025-10-17 15:06:33] [4/7] ▶️ Đang chạy action: fill_login_form
+[2025-10-17 15:06:34] [5/7] ▶️ Đang chạy action: sleep
+[2025-10-17 15:06:35] [6/7] ▶️ Đang chạy action: sleep
+[2025-10-17 15:06:36] [7/7] ▶️ Đang chạy action: sleep
+[2025-10-17 15:06:37] ✅ Hoàn tất tracking
+[2025-10-17 15:27:24] ℹ️ /run_tracking payload received (count=1). Preview: [{'': '0', 'username': 'ttng477@gmail.com', 'password': 'Ductu2306', 'proxy': '123123', 'card_number': '', 'card_exp_month': '', 'card_exp_year': '', 'card_cvv': '123', 'url': 'https://www.yodobashi.com/product/100000001006011748/', 'quantity': '12'}]
+[2025-10-17 15:27:24] 🚀 Bắt đầu tracking cho 1 tài khoản...
+[2025-10-17 15:27:24] 🧵 Đã start thread tracking cho ttng477@gmail.com (idx 0)
+[2025-10-17 15:27:24] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 15:27:31] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000002C5F3876200>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-17 15:27:34] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000002C5F3874730>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-17 15:27:34] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-17 15:27:34] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-17 15:27:34] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 15:27:42] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-17 15:27:43] 🔹 Chờ trang load
+[2025-10-17 15:27:43] ⏳ Chờ 6 giây...
+[2025-10-17 15:27:49] 🔹 Click nút ログイン
+[2025-10-17 15:27:49] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 15:27:51] ✅ Đã click DOM thành công!
+[2025-10-17 15:27:52] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 15:27:52] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 15:28:01] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-17 15:28:03] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-17 15:28:03] 🎉 Fast login thành công (theo heuristics).
+[2025-10-17 15:28:03] 🔹 
+[2025-10-17 15:28:03] ⏳ Chờ 8 giây...
+[2025-10-17 15:28:11] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-17 15:28:11] ⏳ Chờ 3 giây...
+[2025-10-17 15:28:14] 🔹 Chờ trang thanh toán tải xong
+[2025-10-17 15:28:14] ⏳ Chờ 20 giây...
+[2025-10-17 15:28:34] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-17 15:51:58] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-17 15:51:58] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-17 15:51:58] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 15:52:05] 🔴 Proxy 123123 (HTTP) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001B224B85A50>: Failed to resolve '123123' ([Errno 11001] getaddrinfo failed)")))
+[2025-10-17 15:52:08] 🔴 Proxy 123123 (SOCKS5) lỗi: SOCKSHTTPSConnectionPool(host='httpbin.org', port=443): Max retries exceeded with url: /ip (Caused by NewConnectionError('<urllib3.contrib.socks.SOCKSHTTPSConnection object at 0x000001B224B876D0>: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))
+[2025-10-17 15:52:08] ❌ Proxy 123123 không khả dụng (HTTP/SOCKS5).
+[2025-10-17 15:52:08] ⚠️ Proxy 123123 không khả dụng → fallback dùng IP thật của máy.
+[2025-10-17 15:52:08] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 15:52:14] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-17 15:52:15] 🔹 Chờ trang load
+[2025-10-17 15:52:15] ⏳ Chờ 6 giây...
+[2025-10-17 15:52:21] 🔹 Click nút ログイン
+[2025-10-17 15:52:21] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 15:52:22] ✅ Đã click DOM thành công!
+[2025-10-17 15:52:24] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 15:52:24] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 15:52:33] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-17 15:52:35] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-17 15:52:35] 🎉 Fast login thành công (theo heuristics).
+[2025-10-17 15:52:35] 🔹 
+[2025-10-17 15:52:35] ⏳ Chờ 8 giây...
+[2025-10-17 15:52:43] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-17 15:52:43] ⏳ Chờ 3 giây...
+[2025-10-17 15:52:46] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-17 15:52:46] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-17 15:52:50] ✅ Đã click DOM thành công!
+[2025-10-17 15:52:51] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-17 15:52:51] ⏳ Chờ 6 giây...
+[2025-10-17 15:52:57] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-17 15:52:57] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-17 15:52:59] ✅ Đã click DOM thành công!
+[2025-10-17 15:53:01] 🔹 Chờ trang thanh toán tải xong
+[2025-10-17 15:53:01] ⏳ Chờ 6 giây...
+[2025-10-17 15:53:07] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-17 15:53:07] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-17 15:53:11] ✅ Đã click DOM thành công!
+[2025-10-17 15:53:12] 🔹 Điền thông tin thanh toán
+[2025-10-17 15:53:12] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-17 15:53:13] ✅ (send_keys) Điền card_cvv: 123
+[2025-10-17 15:53:13] 🎉 Hoàn tất nhập CVV.
+[2025-10-17 15:53:20] ✅ Đã click nút Thanh toán (attempt 1)
+[2025-10-17 15:53:21] 🔹 
+[2025-10-17 15:53:21] ⏳ Chờ 3 giây...
+[2025-10-17 15:53:24] 🔹 Chờ trang thanh toán tải xong
+[2025-10-17 15:53:24] ⏳ Chờ 20 giây...
+[2025-10-17 15:53:44] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-17 15:53:45] 📩 Đã gửi Telegram: ✅ Mua hàng thành công cho tài khoản <b>ttng477@gmail.com</b>
+[2025-10-17 17:39:08] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-17 17:39:08] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-17 17:39:08] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 17:39:08] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (HTTP) lỗi: Failed to parse: http://212.68.186.193:59100:ttng477:6baBBhT4MU
+[2025-10-17 17:39:08] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (SOCKS5) lỗi: Failed to parse: socks5h://212.68.186.193:59100:ttng477:6baBBhT4MU
+[2025-10-17 17:39:08] ❌ Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU không khả dụng (HTTP/SOCKS5).
+[2025-10-17 17:39:08] ⚠️ Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU không khả dụng → fallback dùng IP thật của máy.
+[2025-10-17 17:39:08] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 17:39:14] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-17 17:39:15] 🔹 Chờ trang load
+[2025-10-17 17:39:15] ⏳ Chờ 6 giây...
+[2025-10-17 17:39:21] 🔹 Click nút ログイン
+[2025-10-17 17:39:21] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 17:39:22] ✅ Đã click DOM thành công!
+[2025-10-17 17:39:23] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 17:39:23] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 17:39:42] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-17 17:39:44] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-17 17:39:44] 🎉 Fast login thành công (theo heuristics).
+[2025-10-17 17:39:44] 🔹 
+[2025-10-17 17:39:44] ⏳ Chờ 8 giây...
+[2025-10-17 17:39:52] 🔹 Chờ trang sản phẩm hiển thị đầy đủ
+[2025-10-17 17:39:52] ⏳ Chờ 3 giây...
+[2025-10-17 17:39:55] 🔹 Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)
+[2025-10-17 17:39:55] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-17 17:39:58] ✅ Đã click DOM thành công!
+[2025-10-17 17:39:59] 🔹 Chờ giỏ hàng cập nhật
+[2025-10-17 17:39:59] ⏳ Chờ 6 giây...
+[2025-10-17 17:40:05] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-17 17:40:05] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-17 17:40:08] ✅ Đã click DOM thành công!
+[2025-10-17 17:40:10] 🔹 Chờ trang thanh toán tải xong
+[2025-10-17 17:40:10] ⏳ Chờ 6 giây...
+[2025-10-17 17:40:16] 🔹 Click nút 次へ進む (Tiếp tục sang bước tiếp theo)
+[2025-10-17 17:40:16] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-17 17:40:20] ✅ Đã click DOM thành công!
+[2025-10-17 17:40:21] 🔹 Điền thông tin thanh toán
+[2025-10-17 17:40:21] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-17 17:40:21] ✅ (send_keys) Điền card_cvv: 123
+[2025-10-17 17:40:22] 🎉 Hoàn tất nhập CVV.
+[2025-10-17 17:40:29] ✅ Đã click nút Thanh toán (attempt 1)
+[2025-10-17 17:40:30] 🔹 
+[2025-10-17 17:40:30] ⏳ Chờ 3 giây...
+[2025-10-17 17:40:33] 🔹 Chờ trang thanh toán tải xong
+[2025-10-17 17:40:33] ⏳ Chờ 20 giây...
+[2025-10-17 17:40:53] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-17 17:40:54] 📩 Đã gửi Telegram: ✅ Mua hàng thành công cho tài khoản <b>ttng477@gmail.com</b>
+[2025-10-17 17:46:50] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-17 17:46:50] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-17 17:46:50] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 17:46:51] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (HTTP) trả mã 503
+[2025-10-17 17:46:52] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (SOCKS5) trả mã 503
+[2025-10-17 17:46:52] ❌ Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU không khả dụng (HTTP/SOCKS5).
+[2025-10-17 17:46:52] ⚠️ Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU không khả dụng → fallback dùng IP thật của máy.
+[2025-10-17 17:46:52] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 17:46:58] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-17 17:46:59] 🔹 Chờ trang load
+[2025-10-17 17:46:59] ⏳ Chờ 6 giây...
+[2025-10-17 17:47:05] 🔹 Click nút ログイン
+[2025-10-17 17:47:05] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 17:47:07] ✅ Đã click DOM thành công!
+[2025-10-17 17:47:08] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 17:47:08] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-17 17:47:17] ➡️ Đã click nút login bằng JS (fast).
+[2025-10-17 17:47:19] ✅ Phát hiện phần tử xác nhận login (fast): //a[contains(., 'ログアウト')]
+[2025-10-17 17:47:19] 🎉 Fast login thành công (theo heuristics).
+[2025-10-17 17:47:19] 🔹 
+[2025-10-17 17:47:19] ⏳ Chờ 8 giây...
+[2025-10-17 17:57:38] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-17 17:57:38] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-17 17:57:38] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 17:57:39] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (HTTP) trả mã 503
+[2025-10-17 17:57:41] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (SOCKS5) trả mã 503
+[2025-10-17 17:57:41] ❌ Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU không khả dụng (HTTP/SOCKS5).
+[2025-10-17 17:57:41] ⚠️ Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU không khả dụng → fallback dùng IP thật của máy.
+[2025-10-17 17:57:41] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 18:00:27] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-17 18:00:27] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-17 18:00:27] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-17 18:00:38] 🔴 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU (http) lỗi: HTTPSConnectionPool(host='httpbin.org', port=443): Read timed out. (read timeout=10) (attempt 1)
+[2025-10-17 18:00:40] 🟢 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU hoạt động (HTTP)
+[2025-10-17 18:00:40] 🌐 Sử dụng proxy: http://212.68.186.193:59100:ttng477:6baBBhT4MU
+[2025-10-17 18:00:40] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-17 18:00:42] 🟢 Proxy 212.68.186.193:59100:ttng477:6baBBhT4MU hoạt động (HTTP)
+[2025-10-17 18:00:42] 🌐 Cấu hình proxy cho driver: http://ttng477:6baBBhT4MU@212.68.186.193:59100
+[2025-10-17 18:00:43] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-17 18:00:44] ⚠️ httpbin không trả origin trong page_source -> proxy có thể không hoạt động cho driver.
+[2025-10-17 18:00:45] 🖼️ Đã lưu screenshot lỗi: proxy_fail_212.68.186.193_59100_ttng477_6baBBhT4MU_1760698844.png
+[2025-10-17 18:00:48] 🔁 Fallback: mở lại driver KHÔNG dùng proxy.
+[2025-10-17 18:00:55] 🔹 Chờ trang load
+[2025-10-17 18:00:55] ⏳ Chờ 6 giây...
+[2025-10-17 18:01:01] 🔹 Click nút ログイン
+[2025-10-17 18:01:01] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-17 18:01:02] ✅ Đã click DOM thành công!
+[2025-10-17 18:01:04] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-17 18:01:04] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.

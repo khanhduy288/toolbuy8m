@@ -172,6 +172,41 @@ async function saveAccounts() {
   document.getElementById("result").innerText = data.message || "✅ Đã lưu tất cả!";
 }
 
+async function runTracking() {
+  // Lấy tất cả các dòng có checkbox được tick
+  const rows = document.querySelectorAll("#accountTableBody tr");
+  const selected = [];
+
+  rows.forEach(row => {
+    const checkbox = row.querySelector("input[type='checkbox']");
+    if (checkbox && checkbox.checked) {
+      const cells = row.querySelectorAll("td input, td select");
+      const acc = {};
+      cells.forEach(input => {
+        acc[input.name] = input.value;
+      });
+      selected.push(acc);
+    }
+  });
+
+  if (selected.length === 0) {
+    alert("⚠️ Vui lòng chọn ít nhất 1 tài khoản để chạy tracking!");
+    return;
+  }
+
+  try {
+    const response = await fetch("/run_tracking", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ accounts: selected })
+    });
+    const data = await response.json();
+    alert(data.message || data.result || "Không có phản hồi từ server");
+  } catch (err) {
+    alert("❌ Lỗi khi chạy tracking: " + err);
+  }
+}
+
 // ---- chạy workflow ----
 async function startWorkflow(runNow = false) {
   const { hour: currentHour, minute: currentMinute } = getJapanTime();
