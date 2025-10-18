@@ -6,12 +6,6 @@
     "desc": "Mở link sản phẩm từ account đã chọn"
   },
   {
-    "step": 2,
-    "action": "sleep",
-    "seconds": 6,
-    "desc": "Chờ trang load"
-  },
-  {
     "action": "click_dom",
     "selector": "//a[contains(text(),'ログイン')]",
     "by": "xpath",
@@ -25,24 +19,16 @@
     "desc": "Nhập thông tin đăng nhập và nhấn ログイン"
   },
   {
-    "action": "sleep",
-    "seconds": 8
-  },
-  {
-    "action": "sleep",
-    "seconds": 3,
-    "desc": "Chờ trang sản phẩm hiển thị đầy đủ"
+    "action": "wait_until_time",
+    "hour": 9,
+    "minute": 30,
+    "desc": "Đợi đến đúng 9:30 JST"
   },
   {
     "action": "click_dom",
     "selector": "//*[@id='js_m_submitRelated']",
     "by": "xpath",
-    "desc": "Click nút ショッピングカートに入れる (Thêm vào giỏ hàng)"
-  },
-  {
-    "action": "sleep",
-    "seconds": 6,
-    "desc": "Chờ giỏ hàng cập nhật"
+    "desc": "Click nút ショッピングカートに入れる"
   },
   {
     "action": "click_dom",
@@ -51,15 +37,10 @@
     "desc": "Click đúng thẻ <a> chứa span 購入手続きに進む"
   },
   {
-    "action": "sleep",
-    "seconds": 6,
-    "desc": "Chờ trang thanh toán tải xong"
-  },
-  {
     "action": "click_dom",
     "selector": "//*[@id='sc_i_buy']",
     "by": "xpath",
-    "desc": "Click nút 次へ進む (Tiếp tục sang bước tiếp theo)"
+    "desc": "Click nút 次へ進む"
   },
   {
     "action": "fill_payment_form",

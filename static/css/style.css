@@ -126,3 +126,34 @@ input[type="checkbox"] {
   height: 18px;
   cursor: pointer;
 }
+/* === Input giờ/phút/giây inline trên 1 dòng === */
+.time-inputs {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-inputs input {
+  width: 40px;      /* Rộng vừa đủ */
+  padding: 2px 4px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.time-inputs span {
+  font-weight: bold;
+}
+/* Chạy các nút hành động trong một ô trên 1 dòng */
+.action-buttons {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+  flex-wrap: nowrap; /* giữ 1 dòng */
+}
+
+.action-buttons button {
+  padding: 3px 6px;
+  font-size: 12px;
+  white-space: nowrap;
+}

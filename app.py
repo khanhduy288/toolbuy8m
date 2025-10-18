@@ -1,14 +1,15 @@
 from flask import Flask, request, jsonify, render_template
-import json, os, time, threading, random, requests, time
-from selenium.webdriver.common.keys import Keys
+import json, os, time, threading, random, requests, zipfile, tempfile, shutil, subprocess
 from datetime import datetime
+from zipfile import ZipFile
+from threading import Lock
 from selenium import webdriver
-from selenium.webdriver.edge.service import Service
-from selenium.webdriver.edge.options import Options as EdgeOptions
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from threading import Lock
+from selenium.webdriver.edge.service import Service
+from selenium.webdriver.edge.options import Options as EdgeOptions
 
 app = Flask(__name__)
 
@@ -17,6 +18,8 @@ driver_path = r"msedgedriver.exe"
 ACCOUNTS_FILE = "accounts.json"
 WORKFLOW_FILE = "workflow.json"
 LOG_FILE = "logs.txt"
+running_accounts = {}  # username -> start_time (timestamp)
+LOCK_DURATION = 2 * 60  # 2 phút
 TELEGRAM_BOT_TOKEN = "8250041358:AAFXomknlgg2-oq9pztHZqaewlFbZPZ2wS4"
 TELEGRAM_CHAT_ID = "-1003136584516"
 
@@ -29,6 +32,36 @@ for file in [ACCOUNTS_FILE, WORKFLOW_FILE]:
     if not os.path.exists(file):
         with open(file, "w", encoding="utf-8") as f:
             json.dump([], f, ensure_ascii=False, indent=2)
+
+def can_run_account(username):
+    """Kiểm tra account có thể chạy không"""
+    now = time.time()
+    start_time = running_accounts.get(username)
+    if start_time and now - start_time < LOCK_DURATION:
+        return False
+    return True
+
+def mark_running(username):
+    running_accounts[username] = time.time()
+
+def proxy_works_http(proxy_raw):
+    """Kiểm tra HTTP proxy auth bằng requests"""
+    parts = proxy_raw.strip().split(":")
+    if len(parts) != 4:
+        log_action(f"❌ Proxy HTTP format sai: {proxy_raw}")
+        return False
+    ip, port, user, pwd = parts
+    proxy_url = f"http://{user}:{pwd}@{ip}:{port}"
+    proxies = {"http": proxy_url, "https": proxy_url}
+    try:
+        r = requests.get("https://api.ipify.org", proxies=proxies, timeout=5)
+        log_action(f"✅ HTTP proxy sống: {proxy_raw} => IP: {r.text}")
+        return True
+    except:
+        log_action(f"❌ HTTP proxy chết: {proxy_raw}")
+        return False
+
+
 
 def send_telegram_message(text):
     """Gửi thông báo Telegram."""
@@ -62,170 +95,126 @@ def save_accounts(data):
     with open(ACCOUNTS_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def parse_proxy(proxy_raw, scheme="http"):
-    """
-    Chuyển proxy kiểu IP:PORT:USER:PASS thành URL proxy đúng chuẩn.
-    scheme: "http" hoặc "socks5h"
-    """
-    proxy_raw = proxy_raw.strip()
-    parts = proxy_raw.split(":")
-    if len(parts) == 4:
-        ip, port, user, pwd = parts
-        proxy_url = f"{scheme}://{user}:{pwd}@{ip}:{port}"
-    elif len(parts) == 2:
-        ip, port = parts
-        proxy_url = f"{scheme}://{ip}:{port}"
-    else:
-        # fallback, để nguyên
-        proxy_url = f"{scheme}://{proxy_raw}"
-    return proxy_url
 
-# ---------- proxy detection ----------
-def proxy_works(proxy_raw, retries=2, timeout=10):
-    """
-    Kiểm tra proxy hoạt động với Requests.
-    Trả về "http", "socks5", hoặc None.
-    Cải tiến: User-Agent, retry nếu 503, timeout dài hơn.
-    """
-    proxy_raw = proxy_raw.strip()
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
-    types = [("http", "http"), ("socks5", "socks5h")]
 
-    for type_name, parse_type in types:
-        for attempt in range(1, retries + 1):
+def open_edge_with_http_proxy(url, proxy=None):
+    """
+    Mở Edge WebDriver dùng HTTP proxy với user:pass thông qua extension tạm.
+    proxy = "ip:port:user:pass"
+    """
+    service = Service(driver_path)
+    options = EdgeOptions()
+    options.add_argument("--start-maximized")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+    options.add_argument("--disable-blink-features=AutomationControlled")
+
+    temp_dir = None
+    ext_path = None
+
+    if proxy:
+        parts = proxy.strip().split(":")
+        if len(parts) == 4:
+            ip, port, user, pwd = parts
             try:
-                proxies = {
-                    "http": parse_proxy(proxy_raw, parse_type),
-                    "https": parse_proxy(proxy_raw, parse_type)
+                # Tạo folder tạm
+                temp_dir = tempfile.mkdtemp()
+                ext_name = f"http_proxy_auth_{int(time.time())}.zip"
+                ext_path = os.path.join(temp_dir, ext_name)
+
+                manifest_json = {
+                    "version": "1.0.0",
+                    "manifest_version": 2,
+                    "name": "HTTP Proxy Auth Extension",
+                    "permissions": ["proxy", "tabs", "unlimitedStorage", "storage", "<all_urls>", "webRequest", "webRequestBlocking"],
+                    "background": {"scripts": ["background.js"]}
                 }
-                r = requests.get("https://httpbin.org/ip", proxies=proxies, timeout=timeout, headers=headers)
-                if r.status_code == 200:
-                    log_action(f"🟢 Proxy {proxy_raw} hoạt động ({type_name.upper()})")
-                    return type_name
-                else:
-                    log_action(f"⚠️ Proxy {proxy_raw} ({type_name}) trả mã {r.status_code} (attempt {attempt})")
-                    if r.status_code == 503:
-                        time.sleep(1)  # chờ 1 giây trước retry
-            except Exception as e:
-                log_action(f"🔴 Proxy {proxy_raw} ({type_name}) lỗi: {e} (attempt {attempt})")
-                time.sleep(1)
-    log_action(f"❌ Proxy {proxy_raw} không khả dụng (HTTP/SOCKS5).")
-    return None
 
-
-def open_edge_window_new_instance(url, proxy=None):
-    """
-    Mở Edge WebDriver; nếu proxy có thì detect scheme (http | socks5)
-    và cấu hình đúng --proxy-server. Sau khi mở, kiểm tra nhanh bằng httpbin.
-    Nếu proxy không cho driver ra ngoài, fallback mở driver không proxy.
-    """
-    def _build_driver(proxy_arg=None):
-        service = Service(driver_path)
-        options = EdgeOptions()
-        options.add_argument("--start-maximized")
-        options.add_experimental_option("excludeSwitches", ["enable-automation"])
-        options.add_experimental_option("useAutomationExtension", False)
-        options.add_argument("--disable-blink-features=AutomationControlled")
-        if proxy_arg:
-            options.add_argument(f"--proxy-server={proxy_arg}")
-            log_action(f"🌐 Cấu hình proxy cho driver: {proxy_arg}")
-        try:
-            driver = webdriver.Edge(service=service, options=options)
-        except Exception as e:
-            log_action(f"❌ Không thể khởi tạo Edge WebDriver: {e}")
-            return None
-
-        # CDP tweak giảm khả năng detect
-        try:
-            driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
-                "source": """
-                    Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
-                    window.navigator.chrome = { runtime: {} };
-                    Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4]});
-                    Object.defineProperty(navigator, 'languages', {get: () => ['en-US','en']});
+                background_js = f"""
+                var config = {{
+                    mode: "fixed_servers",
+                    rules: {{
+                        singleProxy: {{
+                            scheme: "http",
+                            host: "{ip}",
+                            port: parseInt({port})
+                        }},
+                        bypassList: ["localhost"]
+                    }}
+                }};
+                chrome.proxy.settings.set({{value: config, scope: "regular"}}, function(){{}});
+                function callbackFn(details) {{
+                    return {{
+                        authCredentials: {{
+                            username: "{user}",
+                            password: "{pwd}"
+                        }}
+                    }};
+                }}
+                chrome.webRequest.onAuthRequired.addListener(
+                    callbackFn,
+                    {{urls: ["<all_urls>"]}},
+                    ['blocking']
+                );
                 """
-            })
-        except Exception as e:
-            log_action(f"⚠️ CDP tweak không chạy: {e}")
 
-        return driver
+                with ZipFile(ext_path, 'w') as zp:
+                    zp.writestr("manifest.json", json.dumps(manifest_json))
+                    zp.writestr("background.js", background_js)
 
-    try:
-        proxy_arg = None
-        detected = None
-        if proxy:
-            detected = proxy_works(proxy)  # trả về "http" hoặc "socks5"
-            if detected == "http":
-                proxy_arg = parse_proxy(proxy, "http")
-            elif detected == "socks5":
-                proxy_arg = parse_proxy(proxy, "socks5h")
-            else:
-                log_action(f"⚠️ Không xác định được scheme proxy {proxy}; sẽ mở driver không proxy.")
-                proxy_arg = None
+                options.add_extension(ext_path)
+                log_action(f"🔌 Load HTTP proxy auth extension: {ext_path}")
 
-        # 1) Mở driver (với proxy_arg nếu có)
-        driver = _build_driver(proxy_arg)
-        if not driver:
-            return None
-
-        driver.set_page_load_timeout(20)
-
-        # 2) Mở target trang
-        try:
-            driver.get(url)
-            log_action(f"🌍 Mở trang: {url}")
-        except Exception as e:
-            log_action(f"⚠️ Lỗi khi load target {url}: {e}")
-
-        # 3) Nếu dùng proxy -> kiểm tra driver thực sự ra ngoài bằng httpbin
-        if proxy_arg:
-            try:
-                driver.get("https://httpbin.org/ip")
-                time.sleep(1)
-                ps = driver.page_source.lower()
-                if "origin" in ps or "origin" in driver.find_element(By.TAG_NAME, "body").text.lower():
-                    log_action("✅ Driver thông báo đã ra ngoài (httpbin check).")
-                else:
-                    log_action("⚠️ httpbin không trả origin trong page_source -> proxy có thể không hoạt động cho driver.")
-                    # fallback: restart without proxy
-                    try:
-                        fname = f"proxy_fail_{proxy.replace(':','_')}_{int(time.time())}.png"
-                        driver.save_screenshot(fname)
-                        log_action(f"🖼️ Đã lưu screenshot lỗi: {fname}")
-                    except Exception:
-                        pass
-                    try:
-                        driver.quit()
-                    except Exception:
-                        pass
-                    log_action("🔁 Fallback: mở lại driver KHÔNG dùng proxy.")
-                    driver = _build_driver(None)
-                    if driver:
-                        try:
-                            driver.get(url)
-                        except Exception as e:
-                            log_action(f"⚠️ Lỗi khi mở lại trang sau fallback: {e}")
             except Exception as e:
-                log_action(f"⚠️ Lỗi khi kiểm tra httpbin bằng driver: {e}")
-                # fallback to no-proxy
-                try:
-                    driver.quit()
-                except:
-                    pass
-                log_action("🔁 Fallback: mở lại driver không dùng proxy.")
-                driver = _build_driver(None)
-                if driver:
-                    try:
-                        driver.get(url)
-                    except Exception as e:
-                        log_action(f"⚠️ Lỗi khi mở trang sau fallback: {e}")
+                log_action(f"❌ Lỗi tạo extension proxy: {e}")
+                if temp_dir and os.path.exists(temp_dir):
+                    shutil.rmtree(temp_dir, ignore_errors=True)
 
-        return driver
+        else:
+            log_action(f"❌ Proxy format sai: {proxy}")
 
+    # Khởi tạo EdgeDriver
+    try:
+        driver = webdriver.Edge(service=service, options=options)
     except Exception as e:
-        log_action(f"❌ Lỗi mở Edge WebDriver: {e}")
+        log_action(f"❌ Không thể khởi tạo Edge WebDriver: {e}")
+        if temp_dir and os.path.exists(temp_dir):
+            shutil.rmtree(temp_dir, ignore_errors=True)
         return None
 
+    # CDP tweak chống detect
+    try:
+        driver.execute_cdp_cmd("Page.addScriptToEvaluateOnNewDocument", {
+            "source": """
+                Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
+                window.navigator.chrome = { runtime: {} };
+                Object.defineProperty(navigator, 'plugins', {get: () => [1,2,3,4]});
+                Object.defineProperty(navigator, 'languages', {get: () => ['en-US','en']});
+            """
+        })
+    except Exception as e:
+        log_action(f"⚠️ CDP tweak không chạy: {e}")
+
+    # Mở trang
+    try:
+        driver.set_page_load_timeout(30)
+        driver.get(url)
+        log_action(f"🌍 Mở trang: {url}")
+    except Exception as e:
+        log_action(f"⚠️ Lỗi khi load trang {url}: {e}")
+
+    # Thêm hàm cleanup tạm
+    def cleanup_extension():
+        if temp_dir and os.path.exists(temp_dir):
+            try:
+                shutil.rmtree(temp_dir, ignore_errors=True)
+                log_action("🗑️ Đã cleanup extension tạm")
+            except Exception as e:
+                log_action(f"⚠️ Lỗi cleanup extension tạm: {e}")
+
+    driver.cleanup_extension = cleanup_extension
+
+    return driver
 
 # ---------- helper: human typing ----------
 def human_type(driver, element, text, min_delay=0.06, max_delay=0.18):
@@ -270,7 +259,6 @@ def load_workflow():
 
 def run_workflow_for_account(acc, workflow_override=None):
     """Chạy workflow cho 1 tài khoản (dùng chung cho cả workflow và tracking)"""
-    # Nếu không truyền override thì load workflow.json mặc định
     if workflow_override is not None:
         workflow = workflow_override
     else:
@@ -283,14 +271,13 @@ def run_workflow_for_account(acc, workflow_override=None):
     username = acc.get("username")
     log_action(f"\n--- 🔸 Bắt đầu xử lý tài khoản {username} ---")
 
-    # ✅ Kiểm tra proxy trước khi chạy (có fallback IP thật)
+    # Kiểm tra proxy
     proxy_val = acc.get("proxy", "").strip() if acc.get("proxy") else None
     proxy = None
     if proxy_val:
-        scheme = proxy_works(proxy_val)
-        if scheme:
-            proxy = f"{scheme}://{proxy_val}"
-            log_action(f"🌐 Sử dụng proxy: {proxy}")
+        if proxy_works_http(proxy_val):
+            proxy = proxy_val
+            log_action(f"🌐 Sử dụng proxy HTTP/HTTPS: {proxy}")
         else:
             log_action(f"⚠️ Proxy {proxy_val} không khả dụng → fallback dùng IP thật của máy.")
             proxy = None
@@ -298,7 +285,45 @@ def run_workflow_for_account(acc, workflow_override=None):
         log_action("ℹ️ Không có proxy trong account → dùng IP thật mặc định.")
 
     driver = None
+
     try:
+        # Hàm tiện ích click bằng WebDriverWait
+        def wait_and_click(xpath, timeout=8):
+            try:
+                el = WebDriverWait(driver, timeout).until(EC.element_to_be_clickable((By.XPATH, xpath)))
+                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", el)
+                el.click()
+                return True
+            except Exception as e:
+                log_action(f"⚠️ Click element {xpath} thất bại: {e}")
+                return False
+
+        # Hàm tiện ích điền input bằng WebDriverWait
+        def wait_and_fill(xpath, value, prefer_send_keys=False):
+            try:
+                el = WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, xpath)))
+                if prefer_send_keys:
+                    try:
+                        el.clear()
+                        human_type(driver, el, str(value), min_delay=0.03, max_delay=0.09)
+                        log_action(f"✅ (send_keys) Điền {xpath}: {value}")
+                        return True
+                    except Exception as e:
+                        log_action(f"⚠️ send_keys thất bại cho {xpath}: {e} — fallback JS setter")
+                # fallback JS
+                driver.execute_script("""
+                    var el = arguments[0], val = arguments[1];
+                    var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                    if(nativeSetter) nativeSetter.call(el, val); else el.value = val;
+                    el.dispatchEvent(new Event('input', {bubbles:true}));
+                    el.dispatchEvent(new Event('change', {bubbles:true}));
+                """, el, str(value))
+                log_action(f"✅ (JS) Điền {xpath}: {value}")
+                return True
+            except Exception as e:
+                log_action(f"❌ Điền {xpath} thất bại: {e}")
+                return False
+
         for step in workflow:
             action = step.get("action")
             desc = substitute_vars(step.get("desc", ""), acc)
@@ -306,23 +331,15 @@ def run_workflow_for_account(acc, workflow_override=None):
 
             if action == "open_url":
                 url = substitute_vars(step.get("url", ""), acc)
-                driver = open_edge_window_new_instance(url, proxy_val if proxy else None)
+                driver = open_edge_with_http_proxy(url, proxy if proxy else None)
                 time.sleep(random.uniform(0.8, 1.4))
 
             elif action == "click_dom":
                 selector = substitute_vars(step.get("selector", ""), acc)
                 log_action(f"🖱️ Click DOM: {selector}")
                 if driver:
-                    try:
-                        WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.XPATH, selector)))
-                        element = driver.find_element(By.XPATH, selector)
-                        driver.execute_script("arguments[0].scrollIntoView({behavior:'smooth',block:'center'});", element)
-                        # dùng JS click vì đôi khi element là <a> với JS handler
-                        driver.execute_script("arguments[0].click();", element)
-                        log_action("✅ Đã click DOM thành công!")
-                        time.sleep(random.uniform(0.8, 1.6))
-                    except Exception as e:
-                        log_action(f"❌ Lỗi khi click_dom: {e}")
+                    wait_and_click(selector)
+                    time.sleep(random.uniform(0.8, 1.6))
                 else:
                     log_action("⚠️ Không có phiên Edge nào đang chạy để click.")
 
@@ -341,38 +358,13 @@ def run_workflow_for_account(acc, workflow_override=None):
                 submit_selector = substitute_vars(step.get("submit_selector", ""), acc)
 
                 log_action("✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.")
-
                 try:
-                    WebDriverWait(driver, 12).until(EC.visibility_of_element_located((By.XPATH, user_selector)))
-                    WebDriverWait(driver, 12).until(EC.visibility_of_element_located((By.XPATH, pass_selector)))
-
-                    user_input = driver.find_element(By.XPATH, user_selector)
-                    pass_input = driver.find_element(By.XPATH, pass_selector)
-                    set_and_fire = """
-                        var el = arguments[0], val = arguments[1];
-                        var nativeSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-                        if(nativeSetter) {
-                            nativeSetter.call(el, val);
-                        } else {
-                            el.value = val;
-                        }
-                        el.dispatchEvent(new Event('input', {bubbles:true}));
-                        el.dispatchEvent(new Event('change', {bubbles:true}));
-                        try { el.dispatchEvent(new KeyboardEvent('keydown', {bubbles:true})); } catch(e){}
-                        try { el.dispatchEvent(new KeyboardEvent('keyup', {bubbles:true})); } catch(e){}
-                        try { el.blur(); } catch(e){}
-                    """
-                    driver.execute_script(set_and_fire, user_input, acc.get("username", ""))
-                    driver.execute_script(set_and_fire, pass_input, acc.get("password", ""))
-                    time.sleep(0.5)
-                    try:
-                        WebDriverWait(driver, 6).until(EC.element_to_be_clickable((By.XPATH, submit_selector)))
-                        btn = driver.find_element(By.XPATH, submit_selector)
-                        driver.execute_script("arguments[0].click();", btn)
-                        log_action("➡️ Đã click nút login bằng JS (fast).")
-                    except Exception as e:
-                        log_action(f"⚠️ Không click được nút submit: {e}")
+                    wait_and_fill(user_selector, acc.get("username", ""))
+                    wait_and_fill(pass_selector, acc.get("password", ""))
+                    wait_and_click(submit_selector)
                     time.sleep(2)
+
+                    # Check success heuristics
                     success = False
                     possible_success_xpaths = [
                         "//button[contains(., 'Đăng xuất')]",
@@ -381,13 +373,10 @@ def run_workflow_for_account(acc, workflow_override=None):
                         "//img[contains(@class,'avatar')]",
                     ]
                     for sx in possible_success_xpaths:
-                        try:
-                            if driver.find_elements(By.XPATH, sx):
-                                log_action(f"✅ Phát hiện phần tử xác nhận login (fast): {sx}")
-                                success = True
-                                break
-                        except:
-                            pass
+                        if driver.find_elements(By.XPATH, sx):
+                            log_action(f"✅ Phát hiện phần tử xác nhận login: {sx}")
+                            success = True
+                            break
 
                     if not success:
                         curr = driver.current_url
@@ -399,35 +388,47 @@ def run_workflow_for_account(acc, workflow_override=None):
                             log_action("🔍 URL không đổi (fast check).")
 
                     if not success:
-                        try:
-                            screenshot_path = f"debug_fast_login_{username}_{int(time.time())}.png"
-                            driver.save_screenshot(screenshot_path)
-                            log_action(f"🖼️ Lưu screenshot debug: {screenshot_path}")
-                        except Exception as e:
-                            log_action(f"⚠️ Không thể lưu screenshot debug: {e}")
-                        try:
-                            ps = driver.page_source
-                            snippet = ps[:1600]
-                            log_action("🔎 Snippet page_source (fast) 1600 ký tự đầu:")
-                            log_action(snippet)
-                        except Exception as e:
-                            log_action(f"⚠️ Không thể đọc page_source: {e}")
+                        screenshot_path = f"debug_fast_login_{username}_{int(time.time())}.png"
+                        driver.save_screenshot(screenshot_path)
+                        log_action(f"🖼️ Lưu screenshot debug: {screenshot_path}")
                         log_action("❌ Fast login không xác nhận thành công — có thể site cần event tương tác 'thật' hoặc có anti-bot/captcha.")
                     else:
                         log_action("🎉 Fast login thành công (theo heuristics).")
                 except Exception as e:
                     log_action(f"❌ Lỗi khi thực hiện fast fill_login_form: {e}")
 
+            elif action == "wait_until_time":
+                target_hour = step.get("hour", 0)
+                target_minute = step.get("minute", 0)
+                log_action(f"⏳ Bắt đầu đợi đến {target_hour:02d}:{target_minute:02d} JST trước khi tiếp tục...")
+                while True:
+                    now = datetime.utcnow()
+                    jst_hour = (now.hour + 9) % 24
+                    jst_minute = now.minute
+                    if (jst_hour > target_hour) or (jst_hour == target_hour and jst_minute >= target_minute):
+                        log_action(f"✅ Đã đến giờ {target_hour:02d}:{target_minute:02d} JST, tiếp tục workflow.")
+                        break
+                    time.sleep(1)
+                if driver:
+                    try:
+                        driver.refresh()
+                        log_action("🔄 Đã refresh trang sau khi đợi giờ JST.")
+                        time.sleep(1)
+                    except Exception as e:
+                        log_action(f"⚠️ Không refresh được trang: {e}")
+
             elif action == "click_image":
                 img = substitute_vars(step.get("image", ""), acc)
                 log_action(f"🖱️ (Mô phỏng click) Ảnh: {img}")
                 time.sleep(1)
+
             elif action == "fill_form":
                 fields = step.get("fields", {})
                 for k, v in fields.items():
                     val = substitute_vars(v, acc)
                     log_action(f"✏️ Điền {k}: {val}")
                     time.sleep(0.5)
+
             elif action == "fill_payment_form":
                 if not driver:
                     log_action("⚠️ Không có driver để nhập form thanh toán.")
@@ -436,23 +437,28 @@ def run_workflow_for_account(acc, workflow_override=None):
                 is_new = acc.get("is_new", False)
                 try:
                     log_action(f"💳 Bắt đầu điền thông tin thanh toán (is_new={is_new})")
+
                     def safe_find(xpath, timeout=6):
                         try:
-                            return WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.XPATH, xpath)))
+                            return WebDriverWait(driver, timeout).until(
+                                EC.presence_of_element_located((By.XPATH, xpath))
+                            )
                         except Exception:
                             return None
+
                     def fill_input(selector_key, value, prefer_send_keys=False):
-                        """Điền input text như card_number hoặc CVV.
-                        Nếu prefer_send_keys=True cố gắng send_keys (human_type) trước, sau đó fallback JS setter."""
                         sel = selectors.get(selector_key)
                         if not sel or value in (None, ""):
                             log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
                             return False
                         try:
                             try:
-                                el = WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
+                                el = WebDriverWait(driver, 8).until(
+                                    EC.visibility_of_element_located((By.XPATH, sel))
+                                )
                             except Exception:
                                 el = safe_find(sel, timeout=4)
+
                             if not el:
                                 iframes = driver.find_elements(By.TAG_NAME, "iframe")
                                 found = False
@@ -472,9 +478,12 @@ def run_workflow_for_account(acc, workflow_override=None):
                                     log_action(f"❌ Không tìm thấy element cho {selector_key} bằng xpath: {sel}")
                                     return False
                             try:
-                                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", el)
+                                driver.execute_script(
+                                    "arguments[0].scrollIntoView({behavior:'auto',block:'center'});", el
+                                )
                             except Exception:
                                 pass
+
                             if prefer_send_keys:
                                 try:
                                     el.clear()
@@ -522,7 +531,9 @@ def run_workflow_for_account(acc, workflow_override=None):
                             log_action(f"⚠️ Bỏ qua {selector_key} (thiếu selector hoặc value trống)")
                             return False
                         try:
-                            WebDriverWait(driver, 8).until(EC.visibility_of_element_located((By.XPATH, sel)))
+                            WebDriverWait(driver, 8).until(
+                                EC.visibility_of_element_located((By.XPATH, sel))
+                            )
                             el = driver.find_element(By.XPATH, sel)
                             driver.execute_script("""
                                 var sel = arguments[0], val = arguments[1];
@@ -536,25 +547,36 @@ def run_workflow_for_account(acc, workflow_override=None):
                         except Exception as e:
                             log_action(f"❌ Lỗi khi chọn {selector_key}: {e}")
                             return False
+
+                    # --- Điền thẻ mới hoặc CVV ---
                     if is_new:
                         fill_input("card_number", acc.get("card_number"), prefer_send_keys=True)
                         fill_select("card_exp_month", acc.get("card_exp_month"))
                         fill_select("card_exp_year", acc.get("card_exp_year"))
                         log_action("🎉 Hoàn tất nhập thông tin thẻ mới.")
+                        # Click radio paymentTypeCode (cứng fallback)
                         radio_selector = selectors.get("payment_radio") or "//input[@id='a03']"
                         try:
-                            radio = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, radio_selector)))
+                            radio = WebDriverWait(driver, 8).until(
+                                EC.element_to_be_clickable((By.XPATH, radio_selector))
+                            )
                             driver.execute_script("arguments[0].click();", radio)
                             log_action("✅ Đã click radio paymentTypeCode bằng JS.")
                             time.sleep(0.5)
                         except Exception as e:
                             log_action(f"⚠️ Không click được radio paymentTypeCode: {e}")
+
+                        # Click nút Kế tiếp (fallback cứng)
                         next_btn_selector = selectors.get("next_button") or "/html/body/div[1]/div/div[2]/form/div[2]/div[1]/div[1]/div[2]/ul/li/div/a"
                         clicked = False
                         for attempt in range(3):
                             try:
-                                next_btn = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, next_btn_selector)))
-                                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", next_btn)
+                                next_btn = WebDriverWait(driver, 8).until(
+                                    EC.element_to_be_clickable((By.XPATH, next_btn_selector))
+                                )
+                                driver.execute_script(
+                                    "arguments[0].scrollIntoView({behavior:'auto',block:'center'});", next_btn
+                                )
                                 driver.execute_script("arguments[0].click();", next_btn)
                                 log_action(f"✅ Đã click nút Kế tiếp (attempt {attempt+1})")
                                 clicked = True
@@ -566,6 +588,7 @@ def run_workflow_for_account(acc, workflow_override=None):
                         if not clicked:
                             log_action("❌ Không click được nút Kế tiếp sau 3 lần thử.")
                     else:
+                        # Điền CVV
                         cvv_filled = False
                         if fill_input("card_cvv", acc.get("card_cvv"), prefer_send_keys=True):
                             cvv_filled = True
@@ -578,7 +601,6 @@ def run_workflow_for_account(acc, workflow_override=None):
                                     log_action("✅ Điền CVV bằng selector name=creditCard.securityCode")
                                     cvv_filled = True
                                 else:
-                                    # 3) fallback class
                                     els2 = driver.find_elements(By.CSS_SELECTOR, "input.js_c_securityCode")
                                     if els2:
                                         el = els2[0]
@@ -592,12 +614,18 @@ def run_workflow_for_account(acc, workflow_override=None):
                             log_action("❌ Không thể điền CVV — có thể element nằm trong iframe hoặc selector sai.")
                         else:
                             log_action("🎉 Hoàn tất nhập CVV.")
-                        pay_btn_selector = selectors.get("pay_button") or "/html/body/div[1]/div/div[2]/form/div[2]/div/table/tbody/tr/td[2]/div[1]/div[1]/div/a"
+
+                        # Click nút Thanh toán (fallback cứng)
+                        pay_btn_selector = "/html/body/div[1]/div/div[2]/form/div[2]/div/table/tbody/tr/td[2]/div[1]/div[1]/div/a"
                         clicked = False
                         for attempt in range(4):
                             try:
-                                pay_btn = WebDriverWait(driver, 8).until(EC.element_to_be_clickable((By.XPATH, pay_btn_selector)))
-                                driver.execute_script("arguments[0].scrollIntoView({behavior:'auto',block:'center'});", pay_btn)
+                                pay_btn = WebDriverWait(driver, 8).until(
+                                    EC.element_to_be_clickable((By.XPATH, pay_btn_selector))
+                                )
+                                driver.execute_script(
+                                    "arguments[0].scrollIntoView({behavior:'auto',block:'center'});", pay_btn
+                                )
                                 driver.execute_script("arguments[0].click();", pay_btn)
                                 log_action(f"✅ Đã click nút Thanh toán (attempt {attempt+1})")
                                 clicked = True
@@ -611,18 +639,25 @@ def run_workflow_for_account(acc, workflow_override=None):
 
                 except Exception as e:
                     log_action(f"❌ Lỗi khi thực hiện fill_payment_form: {e}")
+
+
             else:
                 log_action(f"⚠️ Action chưa được hỗ trợ: {action}")
+
         log_action(f"✅ Hoàn tất tài khoản {username}")
         send_telegram_message(f"✅ Mua hàng thành công cho tài khoản <b>{acc.get('username')}</b>")
+
     except Exception as e:
         log_action(f"❌ Lỗi khi xử lý {username}: {e}")
     finally:
         if driver:
             try:
+                if hasattr(driver, "cleanup_extension"):
+                    driver.cleanup_extension()
                 driver.quit()
             except:
                 pass
+
 # =========================
 # ROUTES (phần còn lại giữ nguyên)
 # =========================
@@ -706,14 +741,26 @@ def start_workflow():
     selected_accounts = data.get("accounts", [])
     if not selected_accounts:
         return jsonify({"result": "❌ Không có tài khoản nào được chọn!"})
-    log_action(f"▶️ Bắt đầu khởi tạo {len(selected_accounts)} threads (mỗi thread start cách nhau 3s)...")
-    for idx, acc in enumerate(selected_accounts):
+
+    # Lọc account chưa chạy hoặc đã hết 2 phút
+    accounts_to_run = []
+    for acc in selected_accounts:
+        username = acc.get("username")
+        if username and can_run_account(username):
+            accounts_to_run.append(acc)
+            mark_running(username)
+
+    if not accounts_to_run:
+        return jsonify({"result": "⚠️ Tất cả các tài khoản đang chạy hoặc bị lock 2 phút."})
+
+    log_action(f"▶️ Bắt đầu khởi tạo {len(accounts_to_run)} threads (mỗi thread start cách nhau 3s)...")
+    for idx, acc in enumerate(accounts_to_run):
         t = threading.Thread(target=run_workflow_for_account, args=(acc,), daemon=True)
         t.start()
         log_action(f"🟢 Đã start thread cho {acc.get('username')} (idx {idx})")
-        if idx < len(selected_accounts) - 1:
+        if idx < len(accounts_to_run) - 1:
             time.sleep(3)
-    return jsonify({"result": f"🚀 Đã bắt đầu {len(selected_accounts)} tài khoản (staggered 3s)!"})
+    return jsonify({"result": f"🚀 Đã bắt đầu {len(accounts_to_run)} tài khoản (staggered 3s)!"})
 
 @app.route("/run_tracking", methods=["POST"])
 def run_tracking():

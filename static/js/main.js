@@ -13,13 +13,6 @@ function makeYearOptions() {
   return html;
 }
 
-// ---- tạo option phút ----
-function makeMinuteOptions() {
-  let html = '';
-  for (let m = 0; m < 60; m++) html += `<option value="${m}">${m.toString().padStart(2,'0')}</option>`;
-  return html;
-}
-
 // ---- auto refresh log ----
 function startLogAutoRefresh() {
   setInterval(async () => {
@@ -35,12 +28,13 @@ function startLogAutoRefresh() {
   }, 2000);
 }
 
-// ---- lấy giờ + phút hiện tại JST ----
+// ---- lấy giờ + phút + giây hiện tại JST ----
 function getJapanTime() {
   const now = new Date();
   const hour = (now.getUTCHours() + 9) % 24;
   const minute = now.getUTCMinutes();
-  return { hour, minute };
+  const second = now.getUTCSeconds();
+  return { hour, minute, second };
 }
 
 // ---- tạo 1 dòng tài khoản ----
@@ -64,15 +58,20 @@ function createRow(account = {}) {
     <td><input type="number" name="quantity" value="${account.quantity || 1}"></td>
 
     <td>
-      <select class="run-hour">
-        ${Array.from({length:24}, (_,h) => `<option value="${h}" ${account.run_hour==h?"selected":""}>${h}</option>`).join('')}
-      </select> :
-      <select class="run-minute">${makeMinuteOptions()}</select>
+      <div class="time-inputs">
+        <input type="number" name="run_hour" class="run-hour" min="0" max="23" value="${account.run_hour || 0}">
+        <span>:</span>
+        <input type="number" name="run_minute" class="run-minute" min="0" max="59" value="${account.run_minute || 0}">
+        <span>:</span>
+        <input type="number" name="run_second" class="run-second" min="0" max="59" value="${account.run_second || 0}">
+      </div>
     </td>
 
     <td>
-      <button type="button" class="save-one">💾 Save</button>
-      <button type="button" class="remove-row">❌</button>
+      <div class="action-buttons">
+        <button type="button" class="save-one">💾 Save</button>
+        <button type="button" class="remove-row">❌</button>
+      </div>
     </td>
   `;
 
@@ -80,7 +79,6 @@ function createRow(account = {}) {
 
   if (account.card_exp_month) row.querySelector('.card-exp-month').value = account.card_exp_month;
   if (account.card_exp_year) row.querySelector('.card-exp-year').value = account.card_exp_year;
-  if (account.run_minute != null) row.querySelector('.run-minute').value = account.run_minute;
 
   attachRowHandlers(row, account);
 }
@@ -138,7 +136,8 @@ function extractAccountFromRow(row) {
     run: row.querySelector('.run-check').checked,
     card_cvv: row.querySelector('.card-cvv').value.trim(),
     run_hour: parseInt(row.querySelector('.run-hour').value, 10),
-    run_minute: parseInt(row.querySelector('.run-minute').value, 10)
+    run_minute: parseInt(row.querySelector('.run-minute').value, 10),
+    run_second: parseInt(row.querySelector('.run-second').value, 10)
   };
 
   if (acc.is_new) {
@@ -172,44 +171,9 @@ async function saveAccounts() {
   document.getElementById("result").innerText = data.message || "✅ Đã lưu tất cả!";
 }
 
-async function runTracking() {
-  // Lấy tất cả các dòng có checkbox được tick
-  const rows = document.querySelectorAll("#accountTableBody tr");
-  const selected = [];
-
-  rows.forEach(row => {
-    const checkbox = row.querySelector("input[type='checkbox']");
-    if (checkbox && checkbox.checked) {
-      const cells = row.querySelectorAll("td input, td select");
-      const acc = {};
-      cells.forEach(input => {
-        acc[input.name] = input.value;
-      });
-      selected.push(acc);
-    }
-  });
-
-  if (selected.length === 0) {
-    alert("⚠️ Vui lòng chọn ít nhất 1 tài khoản để chạy tracking!");
-    return;
-  }
-
-  try {
-    const response = await fetch("/run_tracking", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ accounts: selected })
-    });
-    const data = await response.json();
-    alert(data.message || data.result || "Không có phản hồi từ server");
-  } catch (err) {
-    alert("❌ Lỗi khi chạy tracking: " + err);
-  }
-}
-
 // ---- chạy workflow ----
 async function startWorkflow(runNow = false) {
-  const { hour: currentHour, minute: currentMinute } = getJapanTime();
+  const { hour: currentHour, minute: currentMinute, second: currentSecond } = getJapanTime();
   const rows = document.querySelectorAll("#accountTableBody tr");
 
   let selected = Array.from(rows)
@@ -217,15 +181,18 @@ async function startWorkflow(runNow = false) {
     .map(r => extractAccountFromRow(r));
 
   if (!runNow) {
-    // Lọc theo giờ/phút
-    selected = selected.filter(acc => acc.run_hour === currentHour && acc.run_minute === currentMinute);
+    selected = selected.filter(acc =>
+      acc.run_hour === currentHour &&
+      acc.run_minute === currentMinute &&
+      acc.run_second === currentSecond
+    );
     if (!selected.length) {
-      console.log(`⏱️ Không có tài khoản nào chạy giờ ${currentHour}:${currentMinute} JST`);
+      console.log(`⏱️ Không có tài khoản nào chạy giờ ${currentHour}:${currentMinute}:${currentSecond} JST`);
       return;
     }
   }
 
-  console.log("✅ Chạy tài khoản:", selected); // Debug danh sách tài khoản được chọn
+  console.log("✅ Chạy tài khoản:", selected);
 
   const res = await fetch("/start", {
     method: "POST",
@@ -236,18 +203,14 @@ async function startWorkflow(runNow = false) {
   document.getElementById("result").innerText = data.result || `✅ Đã gửi yêu cầu cho ${selected.length} tài khoản!`;
 }
 
-
-// ---- tự động kiểm tra mỗi 1 phút ----
-setInterval(() => startWorkflow(false), 60000);
+// ---- tự động kiểm tra mỗi 1 giây ----
+setInterval(() => startWorkflow(false), 1000);
 
 // ---- khởi động ----
 document.addEventListener("DOMContentLoaded", () => {
   loadAccounts();
   startLogAutoRefresh();
 
-  // gắn nút "Chạy ngay" nếu có
   const runNowBtn = document.getElementById("runNowBtn");
-  if (runNowBtn) {
-    runNowBtn.addEventListener("click", () => startWorkflow(true));
-  }
+  if (runNowBtn) runNowBtn.addEventListener("click", () => startWorkflow(true));
 });

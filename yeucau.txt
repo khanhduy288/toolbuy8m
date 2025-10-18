@@ -18,3 +18,7 @@ link web : https://yodobashi.com/
 search tracking チェキフィルム
 link 1: https://www.yodobashi.com/product/100000001003891482/
 link 2: https://www.yodobashi.com/product/100000001003891483/
+
+prx
+212.68.186.193:59100:ttng477:6baBBhT4MU	
+109.238.200.188:59100:ttng477:6baBBhT4MU	

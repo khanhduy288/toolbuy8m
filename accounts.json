@@ -2,14 +2,15 @@
   {
     "username": "tuyetbii27112003@gmail.com",
     "password": "Ductu2306",
-    "proxy": "1212",
-    "url": "https://www.yodobashi.com/product/100000001006011748/",
+    "proxy": "109.238.200.188:59100:ttng477:6baBBhT4MU",
+    "url": "https://www.yodobashi.com/product/100000001003891482/",
     "quantity": 12,
     "is_new": true,
     "run": false,
     "card_cvv": "123",
     "run_hour": 9,
     "run_minute": 30,
+    "run_second": 0,
     "card_number": "121212121212",
     "card_exp_month": "3",
     "card_exp_year": "2029"
@@ -23,7 +24,8 @@
     "is_new": false,
     "run": true,
     "card_cvv": "123",
-    "run_hour": 0,
-    "run_minute": 0
+    "run_hour": 12,
+    "run_minute": 4,
+    "run_second": 11
   }
 ]
