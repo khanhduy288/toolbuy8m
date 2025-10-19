@@ -24,8 +24,8 @@
     "is_new": false,
     "run": true,
     "card_cvv": "123",
-    "run_hour": 12,
-    "run_minute": 4,
+    "run_hour": 9,
+    "run_minute": 36,
     "run_second": 11
   }
 ]

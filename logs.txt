@@ -1885,3 +1885,290 @@ Stacktrace:
 [2025-10-18 10:05:57] ✅ Hoàn tất tài khoản ttng477@gmail.com
 [2025-10-18 10:05:58] 📩 Đã gửi Telegram: ✅ Mua hàng thành công cho tài khoản <b>ttng477@gmail.com</b>
 [2025-10-18 10:05:58] 🗑️ Đã cleanup extension tạm
+[2025-10-19 06:57:55] Lưu 2 tài khoản.
+[2025-10-19 07:20:11] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-19 07:20:11] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-19 07:20:11] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-19 07:20:12] ✅ HTTP proxy sống: 212.68.186.193:59100:ttng477:6baBBhT4MU => IP: 212.68.186.193
+[2025-10-19 07:20:12] 🌐 Sử dụng proxy HTTP/HTTPS: 212.68.186.193:59100:ttng477:6baBBhT4MU
+[2025-10-19 07:20:12] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-19 07:20:12] 🔌 Load HTTP proxy auth extension: C:\Users\PC\AppData\Local\Temp\tmpxmgw5xkx\http_proxy_auth_1760833212.zip
+[2025-10-19 07:20:28] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-19 07:20:30] 🔹 Click nút ログイン
+[2025-10-19 07:20:30] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-19 07:20:35] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-19 07:20:35] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-19 07:20:35] ✅ (JS) Điền //*[@id='memberId']: ttng477@gmail.com
+[2025-10-19 07:20:35] ✅ (JS) Điền //*[@id='password']: Ductu2306
+[2025-10-19 07:20:49] ✅ Phát hiện phần tử xác nhận login: //a[contains(., 'ログアウト')]
+[2025-10-19 07:20:49] 🎉 Fast login thành công (theo heuristics).
+[2025-10-19 07:20:49] 🔹 Đợi đến đúng 9:30 JST
+[2025-10-19 07:20:49] ⏳ Bắt đầu đợi đến 09:30 JST trước khi tiếp tục...
+[2025-10-19 07:30:00] ✅ Đã đến giờ 09:30 JST, tiếp tục workflow.
+[2025-10-19 07:30:06] 🔄 Đã refresh trang sau khi đợi giờ JST.
+[2025-10-19 07:30:07] 🔹 Click nút ショッピングカートに入れる
+[2025-10-19 07:30:07] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-19 07:30:15] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-19 07:30:15] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-19 07:30:21] 🔹 Click nút 次へ進む
+[2025-10-19 07:30:21] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-19 07:30:28] 🔹 Điền thông tin thanh toán
+[2025-10-19 07:30:28] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-19 07:30:40] ❌ Không tìm thấy element cho card_cvv bằng xpath: //input[@name='creditCard.securityCode']
+[2025-10-19 07:30:40] ❌ Không thể điền CVV — có thể element nằm trong iframe hoặc selector sai.
+[2025-10-19 07:30:48] ⚠️ Click Thanh toán attempt 1 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ca542a75+51877]
+	GetHandleVerifier [0x0x7ff6ca542ad4+51972]
+	GetHandleVerifier [0x0x7ff6ca6f9425+1848405]
+	(No symbol) [0x0x7ff6ca30045b]
+	(No symbol) [0x0x7ff6ca30071b]
+	(No symbol) [0x0x7ff6ca341927]
+	(No symbol) [0x0x7ff6ca32216f]
+	(No symbol) [0x0x7ff6ca2f667b]
+	(No symbol) [0x0x7ff6ca33f3d2]
+	(No symbol) [0x0x7ff6ca321df3]
+	(No symbol) [0x0x7ff6ca2f5b36]
+	(No symbol) [0x0x7ff6ca2f4d80]
+	(No symbol) [0x0x7ff6ca2f5973]
+	(No symbol) [0x0x7ff6ca3be4a5]
+	(No symbol) [0x0x7ff6ca3ba75d]
+	GetHandleVerifier [0x0x7ff6ca56d2b3+226019]
+	GetHandleVerifier [0x0x7ff6ca55c481+156849]
+	GetHandleVerifier [0x0x7ff6ca564979+190889]
+	GetHandleVerifier [0x0x7ff6ca549bb4+80868]
+	GetHandleVerifier [0x0x7ff6ca549d03+81203]
+	GetHandleVerifier [0x0x7ff6ca538286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:30:57] ⚠️ Click Thanh toán attempt 2 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ca542a75+51877]
+	GetHandleVerifier [0x0x7ff6ca542ad4+51972]
+	GetHandleVerifier [0x0x7ff6ca6f9425+1848405]
+	(No symbol) [0x0x7ff6ca30045b]
+	(No symbol) [0x0x7ff6ca30071b]
+	(No symbol) [0x0x7ff6ca341927]
+	(No symbol) [0x0x7ff6ca32216f]
+	(No symbol) [0x0x7ff6ca2f667b]
+	(No symbol) [0x0x7ff6ca33f3d2]
+	(No symbol) [0x0x7ff6ca321df3]
+	(No symbol) [0x0x7ff6ca2f5b36]
+	(No symbol) [0x0x7ff6ca2f4d80]
+	(No symbol) [0x0x7ff6ca2f5973]
+	(No symbol) [0x0x7ff6ca3be4a5]
+	(No symbol) [0x0x7ff6ca3ba75d]
+	GetHandleVerifier [0x0x7ff6ca56d2b3+226019]
+	GetHandleVerifier [0x0x7ff6ca55c481+156849]
+	GetHandleVerifier [0x0x7ff6ca564979+190889]
+	GetHandleVerifier [0x0x7ff6ca549bb4+80868]
+	GetHandleVerifier [0x0x7ff6ca549d03+81203]
+	GetHandleVerifier [0x0x7ff6ca538286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:31:06] ⚠️ Click Thanh toán attempt 3 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ca542a75+51877]
+	GetHandleVerifier [0x0x7ff6ca542ad4+51972]
+	GetHandleVerifier [0x0x7ff6ca6f9425+1848405]
+	(No symbol) [0x0x7ff6ca30045b]
+	(No symbol) [0x0x7ff6ca30071b]
+	(No symbol) [0x0x7ff6ca341927]
+	(No symbol) [0x0x7ff6ca32216f]
+	(No symbol) [0x0x7ff6ca2f667b]
+	(No symbol) [0x0x7ff6ca33f3d2]
+	(No symbol) [0x0x7ff6ca321df3]
+	(No symbol) [0x0x7ff6ca2f5b36]
+	(No symbol) [0x0x7ff6ca2f4d80]
+	(No symbol) [0x0x7ff6ca2f5973]
+	(No symbol) [0x0x7ff6ca3be4a5]
+	(No symbol) [0x0x7ff6ca3ba75d]
+	GetHandleVerifier [0x0x7ff6ca56d2b3+226019]
+	GetHandleVerifier [0x0x7ff6ca55c481+156849]
+	GetHandleVerifier [0x0x7ff6ca564979+190889]
+	GetHandleVerifier [0x0x7ff6ca549bb4+80868]
+	GetHandleVerifier [0x0x7ff6ca549d03+81203]
+	GetHandleVerifier [0x0x7ff6ca538286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:31:15] ⚠️ Click Thanh toán attempt 4 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff6ca542a75+51877]
+	GetHandleVerifier [0x0x7ff6ca542ad4+51972]
+	GetHandleVerifier [0x0x7ff6ca6f9425+1848405]
+	(No symbol) [0x0x7ff6ca30045b]
+	(No symbol) [0x0x7ff6ca30071b]
+	(No symbol) [0x0x7ff6ca341927]
+	(No symbol) [0x0x7ff6ca32216f]
+	(No symbol) [0x0x7ff6ca2f667b]
+	(No symbol) [0x0x7ff6ca33f3d2]
+	(No symbol) [0x0x7ff6ca321df3]
+	(No symbol) [0x0x7ff6ca2f5b36]
+	(No symbol) [0x0x7ff6ca2f4d80]
+	(No symbol) [0x0x7ff6ca2f5973]
+	(No symbol) [0x0x7ff6ca3be4a5]
+	(No symbol) [0x0x7ff6ca3ba75d]
+	GetHandleVerifier [0x0x7ff6ca56d2b3+226019]
+	GetHandleVerifier [0x0x7ff6ca55c481+156849]
+	GetHandleVerifier [0x0x7ff6ca564979+190889]
+	GetHandleVerifier [0x0x7ff6ca549bb4+80868]
+	GetHandleVerifier [0x0x7ff6ca549d03+81203]
+	GetHandleVerifier [0x0x7ff6ca538286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:31:16] ❌ Không click được nút Thanh toán sau 4 lần thử.
+[2025-10-19 07:31:16] 🔹 
+[2025-10-19 07:31:16] ⏳ Chờ 3 giây...
+[2025-10-19 07:31:19] 🔹 Chờ trang thanh toán tải xong
+[2025-10-19 07:31:19] ⏳ Chờ 20 giây...
+[2025-10-19 07:31:39] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-19 07:31:40] 📩 Đã gửi Telegram: ✅ Mua hàng thành công cho tài khoản <b>ttng477@gmail.com</b>
+[2025-10-19 07:31:40] 🗑️ Đã cleanup extension tạm
+[2025-10-19 07:36:11] ▶️ Bắt đầu khởi tạo 1 threads (mỗi thread start cách nhau 3s)...
+[2025-10-19 07:36:11] 🟢 Đã start thread cho ttng477@gmail.com (idx 0)
+[2025-10-19 07:36:11] 
+--- 🔸 Bắt đầu xử lý tài khoản ttng477@gmail.com ---
+[2025-10-19 07:36:15] ✅ HTTP proxy sống: 212.68.186.193:59100:ttng477:6baBBhT4MU => IP: 212.68.186.193
+[2025-10-19 07:36:15] 🌐 Sử dụng proxy HTTP/HTTPS: 212.68.186.193:59100:ttng477:6baBBhT4MU
+[2025-10-19 07:36:15] 🔹 Mở link sản phẩm từ account đã chọn
+[2025-10-19 07:36:15] 🔌 Load HTTP proxy auth extension: C:\Users\PC\AppData\Local\Temp\tmpngo7mrcc\http_proxy_auth_1760834175.zip
+[2025-10-19 07:36:31] 🌍 Mở trang: https://www.yodobashi.com/product/100000001006011748/
+[2025-10-19 07:36:32] 🔹 Click nút ログイン
+[2025-10-19 07:36:32] 🖱️ Click DOM: //a[contains(text(),'ログイン')]
+[2025-10-19 07:36:37] 🔹 Nhập thông tin đăng nhập và nhấn ログイン
+[2025-10-19 07:36:37] ✏️ Nhập nhanh (fast) username/password bằng JS native setter, không gõ thủ công.
+[2025-10-19 07:36:37] ✅ (JS) Điền //*[@id='memberId']: ttng477@gmail.com
+[2025-10-19 07:36:37] ✅ (JS) Điền //*[@id='password']: Ductu2306
+[2025-10-19 07:36:52] ✅ Phát hiện phần tử xác nhận login: //a[contains(., 'ログアウト')]
+[2025-10-19 07:36:52] 🎉 Fast login thành công (theo heuristics).
+[2025-10-19 07:36:52] 🔹 Đợi đến đúng 9:30 JST
+[2025-10-19 07:36:52] ⏳ Bắt đầu đợi đến 09:37 JST trước khi tiếp tục...
+[2025-10-19 07:37:00] ✅ Đã đến giờ 09:37 JST, tiếp tục workflow.
+[2025-10-19 07:37:06] 🔄 Đã refresh trang sau khi đợi giờ JST.
+[2025-10-19 07:37:07] 🔹 Click nút ショッピングカートに入れる
+[2025-10-19 07:37:07] 🖱️ Click DOM: //*[@id='js_m_submitRelated']
+[2025-10-19 07:37:09] 🔹 Click đúng thẻ <a> chứa span 購入手続きに進む
+[2025-10-19 07:37:09] 🖱️ Click DOM: //a[span[contains(text(),'購入手続きに進む')]]
+[2025-10-19 07:37:20] 🔹 Click nút 次へ進む
+[2025-10-19 07:37:20] 🖱️ Click DOM: //*[@id='sc_i_buy']
+[2025-10-19 07:37:27] 🔹 Điền thông tin thanh toán
+[2025-10-19 07:37:27] 💳 Bắt đầu điền thông tin thanh toán (is_new=False)
+[2025-10-19 07:37:39] ❌ Không tìm thấy element cho card_cvv bằng xpath: //input[@name='creditCard.securityCode']
+[2025-10-19 07:37:39] ❌ Không thể điền CVV — có thể element nằm trong iframe hoặc selector sai.
+[2025-10-19 07:37:48] ⚠️ Click Thanh toán attempt 1 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7fad02a75+51877]
+	GetHandleVerifier [0x0x7ff7fad02ad4+51972]
+	GetHandleVerifier [0x0x7ff7faeb9425+1848405]
+	(No symbol) [0x0x7ff7faac045b]
+	(No symbol) [0x0x7ff7faac071b]
+	(No symbol) [0x0x7ff7fab01927]
+	(No symbol) [0x0x7ff7faae216f]
+	(No symbol) [0x0x7ff7faab667b]
+	(No symbol) [0x0x7ff7faaff3d2]
+	(No symbol) [0x0x7ff7faae1df3]
+	(No symbol) [0x0x7ff7faab5b36]
+	(No symbol) [0x0x7ff7faab4d80]
+	(No symbol) [0x0x7ff7faab5973]
+	(No symbol) [0x0x7ff7fab7e4a5]
+	(No symbol) [0x0x7ff7fab7a75d]
+	GetHandleVerifier [0x0x7ff7fad2d2b3+226019]
+	GetHandleVerifier [0x0x7ff7fad1c481+156849]
+	GetHandleVerifier [0x0x7ff7fad24979+190889]
+	GetHandleVerifier [0x0x7ff7fad09bb4+80868]
+	GetHandleVerifier [0x0x7ff7fad09d03+81203]
+	GetHandleVerifier [0x0x7ff7facf8286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:37:57] ⚠️ Click Thanh toán attempt 2 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7fad02a75+51877]
+	GetHandleVerifier [0x0x7ff7fad02ad4+51972]
+	GetHandleVerifier [0x0x7ff7faeb9425+1848405]
+	(No symbol) [0x0x7ff7faac045b]
+	(No symbol) [0x0x7ff7faac071b]
+	(No symbol) [0x0x7ff7fab01927]
+	(No symbol) [0x0x7ff7faae216f]
+	(No symbol) [0x0x7ff7faab667b]
+	(No symbol) [0x0x7ff7faaff3d2]
+	(No symbol) [0x0x7ff7faae1df3]
+	(No symbol) [0x0x7ff7faab5b36]
+	(No symbol) [0x0x7ff7faab4d80]
+	(No symbol) [0x0x7ff7faab5973]
+	(No symbol) [0x0x7ff7fab7e4a5]
+	(No symbol) [0x0x7ff7fab7a75d]
+	GetHandleVerifier [0x0x7ff7fad2d2b3+226019]
+	GetHandleVerifier [0x0x7ff7fad1c481+156849]
+	GetHandleVerifier [0x0x7ff7fad24979+190889]
+	GetHandleVerifier [0x0x7ff7fad09bb4+80868]
+	GetHandleVerifier [0x0x7ff7fad09d03+81203]
+	GetHandleVerifier [0x0x7ff7facf8286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:38:06] ⚠️ Click Thanh toán attempt 3 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7fad02a75+51877]
+	GetHandleVerifier [0x0x7ff7fad02ad4+51972]
+	GetHandleVerifier [0x0x7ff7faeb9425+1848405]
+	(No symbol) [0x0x7ff7faac045b]
+	(No symbol) [0x0x7ff7faac071b]
+	(No symbol) [0x0x7ff7fab01927]
+	(No symbol) [0x0x7ff7faae216f]
+	(No symbol) [0x0x7ff7faab667b]
+	(No symbol) [0x0x7ff7faaff3d2]
+	(No symbol) [0x0x7ff7faae1df3]
+	(No symbol) [0x0x7ff7faab5b36]
+	(No symbol) [0x0x7ff7faab4d80]
+	(No symbol) [0x0x7ff7faab5973]
+	(No symbol) [0x0x7ff7fab7e4a5]
+	(No symbol) [0x0x7ff7fab7a75d]
+	GetHandleVerifier [0x0x7ff7fad2d2b3+226019]
+	GetHandleVerifier [0x0x7ff7fad1c481+156849]
+	GetHandleVerifier [0x0x7ff7fad24979+190889]
+	GetHandleVerifier [0x0x7ff7fad09bb4+80868]
+	GetHandleVerifier [0x0x7ff7fad09d03+81203]
+	GetHandleVerifier [0x0x7ff7facf8286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:38:15] ⚠️ Click Thanh toán attempt 4 thất bại: Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff7fad02a75+51877]
+	GetHandleVerifier [0x0x7ff7fad02ad4+51972]
+	GetHandleVerifier [0x0x7ff7faeb9425+1848405]
+	(No symbol) [0x0x7ff7faac045b]
+	(No symbol) [0x0x7ff7faac071b]
+	(No symbol) [0x0x7ff7fab01927]
+	(No symbol) [0x0x7ff7faae216f]
+	(No symbol) [0x0x7ff7faab667b]
+	(No symbol) [0x0x7ff7faaff3d2]
+	(No symbol) [0x0x7ff7faae1df3]
+	(No symbol) [0x0x7ff7faab5b36]
+	(No symbol) [0x0x7ff7faab4d80]
+	(No symbol) [0x0x7ff7faab5973]
+	(No symbol) [0x0x7ff7fab7e4a5]
+	(No symbol) [0x0x7ff7fab7a75d]
+	GetHandleVerifier [0x0x7ff7fad2d2b3+226019]
+	GetHandleVerifier [0x0x7ff7fad1c481+156849]
+	GetHandleVerifier [0x0x7ff7fad24979+190889]
+	GetHandleVerifier [0x0x7ff7fad09bb4+80868]
+	GetHandleVerifier [0x0x7ff7fad09d03+81203]
+	GetHandleVerifier [0x0x7ff7facf8286+8886]
+	BaseThreadInitThunk [0x0x7ffbe1d4e8d7+23]
+	RtlUserThreadStart [0x0x7ffbe2f6c53c+44]
+
+[2025-10-19 07:38:15] ❌ Không click được nút Thanh toán sau 4 lần thử.
+[2025-10-19 07:38:15] 🔹 
+[2025-10-19 07:38:15] ⏳ Chờ 3 giây...
+[2025-10-19 07:38:18] 🔹 Chờ trang thanh toán tải xong
+[2025-10-19 07:38:18] ⏳ Chờ 20 giây...
+[2025-10-19 07:38:38] ✅ Hoàn tất tài khoản ttng477@gmail.com
+[2025-10-19 07:38:39] 📩 Đã gửi Telegram: ✅ Mua hàng thành công cho tài khoản <b>ttng477@gmail.com</b>
+[2025-10-19 07:38:39] 🗑️ Đã cleanup extension tạm
